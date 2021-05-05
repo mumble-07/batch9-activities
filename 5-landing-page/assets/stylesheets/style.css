@@ -1,0 +1,73 @@
+body {
+  width: 100vw;
+  height: 100%;
+  margin: auto;
+  background-image: url("assets/");
+}
+
+#header {
+  height: 100px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img {
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+.nav-link {
+  text-decoration: none;
+  margin: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#container img {
+  width: 400px;
+  height: auto;
+}
+
+#container h1 {
+  width: 400px;
+  height: auto;
+  font-size: 40px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#container2a {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+#container2a h1 h3 {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=style.css.map */
