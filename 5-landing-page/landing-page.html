@@ -10,56 +10,125 @@
 </head>
 <body>
 <!--HEADER-->
+
         <header id="header"> <!--US1-->
             <img id="header-img" src="assets/logo2.png" alt="company-logo"><!--US2-->
             <div>
                 <nav id="nav-bar"> <!--US3-->
-                    <a class="nav-link" href="#container">Home</a><!--US4--><!--US5-->
+                    <a class="nav-link" href="#container1">Home</a><!--US4--><!--US5-->
                     <a class="nav-link" href="#container2a">About Us</a>
-                    <a class="nav-link" href="#container3">Services</a>
-                    <a class="nav-link" href="#container4">Our Product</a>
-                    <a class="nav-link" href="#container">Contact Us</a>
-                    
+                    <a class="nav-link" href="#container3a">Services</a>
+                    <a class="nav-link" href="#container4">Our Products</a>
+                    <a class="nav-link" href="#container5">Contact Us</a>
                 </nav>
             </div>
         </header>
 <!--CONT1-->
-        <div id="container">
-            <img src="assets/img2.png" alt="landing-image">
-            <h1>We create and integrate.</h1>
+        <div id="container1">
+            <img src="assets/img1.png">
+            <div class="title">
+                We
+                <div class="slider">
+                    <div>integrate</div>
+                    <div>and</div>
+                    <div>create</div>
+                </div>
+               </div>
         </div>
 <!--CONT2-->
         <div id="container2a">
-            <h1>EENOVATICS TEAM</h1>
-                <h3>Who we are?<br><span>Being able to see technological change aiming for Industry 5.0 in every part of the world we strive and be able to make ideas into reality with the integration of technology. We solve problems with the use of research and development through technological advancement. Technology providing automation that would give ease, comfort and safety in every target of the world.</span></h3>
-                <h3>Mission<br><span>By identifying, defining and solving problems faced by the nation and the citizens, EEnovatics aims to provide technological interventions through research,  development, innovation, and  integration of hardware-software technologies.</span></h3>
-                <h3>Vision<br><span>By 2026, EEnovatics envisions itself to fill in the gaps and ease up problems in our industry through hardware and software solutions.</span></h3>
-                <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/EKRVILAohck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h1 id="aboutus">ABOUT US</h1>
+            <div id="who-we-are">
+                <h3>Who we are?<br></h3>
+                <p>Being able to see technological change aiming for Industry 5.0 in every part of the world we strive and be able to make ideas into reality with the integration of technology. We solve problems with the use of research and development through technological advancement. Technology providing automation that would give ease, comfort and safety in every target of the world.</p>
+            </div>
+            <div id="mission">
+                <h3>Mission<br></h3>
+                <p>By identifying, defining and solving problems faced by the nation and the citizens, EEnovatics aims to provide technological interventions through research,  development, innovation, and  integration of hardware-software technologies.</p>
+            </div>
+            <div id="vision">
+                <h3>Vision<br></h3>
+                <p>By 2026, EEnovatics envisions itself to fill in the gaps and ease up problems in our industry through hardware and software solutions.</p>
+            </div>
+            <div id="video">
+                <iframe src="https://www.youtube.com/embed/EKRVILAohck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><!--US6-->
+            </div>
+            
         </div>
-        
-        <div id="container2b">
-            <img id="aboutus" src="" alt="Founder1">
-            <h3>Founder1</h3>
-            <img id="aboutus" src="" alt="Founder2">
-            <h3>Founder2</h3>
+<!--CONT3-->
+        <div id="container3a">
+            <h1 id="services">SERVICES</h1>
+                <div id="service1">
+                    <h2>Hardware<br> customization</h2><br><br>
+                        <h3>You have the idea, let’s make it happen!<br>Get customized based on your needs with EEnovatics.</h3>
+                </div>
+                <div id="service2">
+                    <h2>Hardware-Software integration</h2><br><br>
+                    <h3>Unleash your product’s full potential with our Hardware-Software integration services.</h3>
+                </div>
+                <div id="service3">
+                    <h2>Consultation</h2><br><br><br><br>
+                        <h3>Having trouble with an idea or your product?<br> Don’t hesitate to consult with us!</h3>
+                </div>
+            </div>
         </div>
-        <div id="container3">
-            <h1>SERVICES</h1>
-            <img src="" alt="service-one">
-            <h3>Hardware customization<br><span>You have the idea, let’s make it happen! Get customized based on your needs with EEnovatics.</span></h3>
-            <img src="" alt="service-two">
-            <h3>Hardware-Software integration<br><span>Unleash your product’s full potential with our Hardware-Software integration services.</span></h3>
-            <img src="" alt="service-three">
-            <h3>Consultation<br><span>Having trouble with an idea or your product? Don’t hesitate to consult with us!</span></h3>
-        </div>
+<!--CONT4-->
         <div id="container4">
-            <h1>OUR PRODUCTS</h1>
-            <img src="" alt="Project-BEATRICE">
+            <h1 id="prod">OUR PRODUCTS</h1>
+            <div id=text-label>
             <h2>Make every entrance safer.</h2>
+            </div>
+            <div id="prd1">
+                <img src="assets/prd1.png" alt="Project-BEATRICE">
+            </div>
+        <div id="prd2">
+            <img src="assets/prd2.png" alt="Project-BEATRICE">
         </div>
+        </div>
+<!--CONT5-->
         <div id="container5">
-            <h1>CONTACT US!</h1>
-
+            <h1 id="contact-us">CONTACT US!</h1>
+            <form onsubmit="return results();" action="landing-page.html" method="GET"><!--US12-->
+                <div id="form"> <!--US7-->
+                    <div>
+                        <br><h2>Message Us!</h2><br><br>
+                        <label id="name" for="name">Full Name: </label><br>
+                        <input type="text" name ="name" id ="name" required placeholder="Full here" size=50px;><br><br>
+                    </div>   
+                    <div><!--US8-->
+                        <label id="email" for="email" Email Address:>Email: </label><br>
+                        <input type="email" name ="Email Add" id ="email" required placeholder="Email Address here" size=50px;><br><!--US9--><!--US10-->
+                    </div>
+                    <div id="textarea"><br>
+                            <label for="msg">Leave a message for us!</label><br><br>
+                            <textarea name="msg" id="msg"></textarea>
+                    </div>
+                    <div id="submit"><br><!--US11-->
+                    <input type="submit" id="submit" name="button" value="send">
+                    </div>
+                </div>   
+        </form> 
+            <div id="where">
+                <br><h2> Where to find us?</h2><br>
+                    <h4>G/F Bl. Pier Giorgio Frassati, O.P. Bldg.,<br> University of Santo Tomas, España Blvd., Sampaloc, Manila, Philippines 1008</h4><br>
+                    <img id="map" src="assets/map1.jpg" alt="location-map">
+                </div>
+            <div id="send">
+                    <h2>Send us an email!</h2><br>
+                    <h4>eenovatics@gmail.com</h4>
+            </div>
+        </div>
+        <div id="footer">
+                    <a href='https://www.facebook.com/EEnovatics' target="_blank">
+                        <img id="image" src="assets/f1.png"/></a>
+                    <a href='https://www.facebook.com/EEnovatics' target="_blank">
+                        <img id="image" src="assets/f2.png"/></a>
+                    <a href='https://www.facebook.com/EEnovatics' target="_blank">
+                        <img id="image" src="assets/f3.png"/></a>
+                    <a href='https://www.facebook.com/EEnovatics' target="_blank">
+                        <img id="image" src="assets/f4.png"/></a>
+                                                      
+            </div>
         </div>
 </body>
 </html>
