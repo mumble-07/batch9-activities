@@ -1,9 +1,7 @@
-function sendText( ) {
-    //Write your code here.
+function sendText(x,y) {
+    console.log('Hello ' + x + " " + y + ' we have no classes today!');
+    
 }
-sendText()
-
-
 sendText('Jose', 'Rizal')
 sendText('Manny', 'Pacquiao')
 sendText('Robert', 'Rodriguez')
