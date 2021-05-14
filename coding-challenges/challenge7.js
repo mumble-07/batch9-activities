@@ -1,3 +1,4 @@
+//Coding Challenge - Which of these values are falsy?
 //Create an if-else statement that logs if the object property is true or false
 
 var user = {

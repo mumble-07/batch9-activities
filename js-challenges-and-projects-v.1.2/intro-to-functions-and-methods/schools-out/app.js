@@ -1,5 +1,5 @@
-function sendText(x,y) {
-    console.log('Hello ' + x + " " + y + ' we have no classes today!');
+function sendText(firstName, lastName) {
+    console.log('Hello ' + firstName + " " + lastName + ' we have no classes today!');
     
 }
 sendText('Jose', 'Rizal')
