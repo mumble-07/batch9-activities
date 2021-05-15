@@ -1,0 +1,29 @@
+
+body {
+    width: 98vw;
+    height: 98vh;
+    background-image: url("../images/bg8.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#main {
+    width: 98vw;
+    height: 98vh;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 20% 60% 20%;
+}
+
+form {
+    grid-column-start: 2;
+    grid-column-end: 3; 
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+
