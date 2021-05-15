@@ -8,14 +8,29 @@
     <link rel="stylesheet" href="assets/stylesheets/styles.css">
 </head>
 <body>
-    <div id="main">
-        <form onsubmit="return results();" action="momentum-app.html" method="GET">
-            <div id="name">
-                <label id="name-label" for="name">Tell me your name?</label><br>
-                <input type="text" name ="Nickname" id ="name" required placeholder="Name here" size=50px;><br>
-            </div>
-    </div>
-
-    
+    <main id="main">
+        <div id="clock">
+            <h1>00:00:00</h1><!--US2-->
+        </div>
+        <form id="name">
+            <label>Tell me your name?</label><br><!--US1-->
+            <input type="text" name="name" id="name" required placeholder="Name here"><br>
+        </form>
+        <div id="greetings">Hello, </div><!--US3--> 
+            <form id="focus">
+                <label>What is your main focus today?</label><br><!--US4-->
+                <input type="text" name ="focus" id ="focus" required placeholder="Focus today?"><br>
+            </form>
+        <div id="quote"> <!--US5-->
+            <h1>kowts</h1>
+        </div>
+        <div id="todo">
+            <h1>To Do</h1>
+        <form id="todojs">
+            <input type="text" placeholder="White task here" />
+        </form>
+        </div>
+    </main>
+    <script src="js/clock.js"></script>
 </body>
 </html>
