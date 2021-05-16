@@ -1,4 +1,4 @@
-const clockJs = document.querySelector ("#clock")
+const clockJs = document.querySelector (".clock")
 const clockText = clockJs.querySelector ("h1")
 
 function getTime() {

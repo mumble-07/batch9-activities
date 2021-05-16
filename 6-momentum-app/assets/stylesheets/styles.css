@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
 body {
   width: 100vw;
   height: 100vh;
@@ -5,6 +8,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  overflow: hidden;
 }
 
 #main {
@@ -12,57 +16,120 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 40% 30% 30%;
-  grid-template-rows: 20% 15% 15% 15% 15% 20%;
+  grid-template-rows: 20% 20% 10% 15% 15% 20%;
 }
 
-#clock {
+.clock {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
   margin: 0 auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+}
+.clock h1 {
+  font: 90px "Staatliches", cursive;
+  font-weight: bold;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
 }
 
-#name, #greetings {
+.name, .greetings {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
-  grid-row-end: 4;
+  grid-row-end: 3;
+  margin-top: 20%;
+  margin-bottom: 15%;
   margin: 0 auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-#focus {
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  margin: 0 auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+.name input {
+  width: 25vw;
+  height: 6vh;
+  margin-top: 15%;
+  font: 100% "Poppins", sans-serif;
+  border: none;
+  background-color: transparent;
 }
 
-#quote {
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 4;
-  margin: 0 auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+#submit {
+  display: none;
 }
 
-#todo {
+/* .name:hover {
+    color: turquoise;
+    transition-property: width;
+    transition-duration: 2s;
+} */
+.focus {
   grid-column-start: 1;
   grid-column-end: 2;
-  grid-row-start: 4;
+  grid-row-start: 3;
   grid-row-end: 7;
+  margin-top: 15%;
+  margin-bottom: 15%;
   margin: 0 auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.focus h1 {
+  font: 180% "Poppins", sans-serif;
+}
+
+#focusjs input {
+  width: 30vw;
+  height: 6vh;
+  font: 100% "Poppins", sans-serif;
+  border: none;
+  background-color: transparent;
+}
+
+.quote {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 5% auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.quote h2 {
+  font: 200% "Cairo", sans-serif;
+  margin-bottom: 2px;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
+}
+.quote h4 {
+  font: 120% "Cairo", sans-serif;
+  margin-left: 10%;
+  line-height: 2px;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
+}
+
+.todo {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 7;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  margin: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.todo h1 {
+  font: 180% "Poppins", sans-serif;
+}
+
+#todojs input {
+  width: 30vw;
+  height: 6vh;
+  font: 100% "Poppins", sans-serif;
+  border: none;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=styles.css.map */

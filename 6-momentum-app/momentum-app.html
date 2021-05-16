@@ -9,28 +9,40 @@
 </head>
 <body>
     <main id="main">
-        <div id="clock">
+<!--CLOCK-->
+        <div class="clock">
             <h1>00:00:00</h1><!--US2-->
         </div>
-        <form id="name">
-            <label>Tell me your name?</label><br><!--US1-->
-            <input type="text" name="name" id="name" required placeholder="Name here"><br>
+<!--NAME-->
+        <form class="name">
+            <!-- <label>Hello there!</label><br> --><!--US1-->
+            <input type="text" placeholder="What's your name?"><br>
+            <input type="submit" id="submit" value="send">
         </form>
-        <div id="greetings">Hello, </div><!--US3--> 
-            <form id="focus">
-                <label>What is your main focus today?</label><br><!--US4-->
-                <input type="text" name ="focus" id ="focus" required placeholder="Focus today?"><br>
-            </form>
-        <div id="quote"> <!--US5-->
-            <h1>kowts</h1>
+<!--GREETINGS-->
+        <h2 class="greetings"></h2><!--US3--> 
+<!--MAIN FOCUS-->
+        <div class="focus">
+            <h1>What is your main focus today?</h1><!--US4-->
+        <form id="focusjs">
+            <input type="text" placeholder="Focus today?"/>
+        </form>
         </div>
-        <div id="todo">
-            <h1>To Do</h1>
+<!--QUOTES-->
+        <div class="quote"><!--US5-->
+            <h2>"All that is gold does not glitter. Not all those who wander are lost"</h2>
+            <h4>- J.R.R. Tolkien</h4>
+        </div>
+<!--TO DO LIST-->
+        <div class="todo">
+            <h1>To Do List</h1>
         <form id="todojs">
-            <input type="text" placeholder="White task here" />
+            <input type="text" placeholder="Write task here"/>
         </form>
         </div>
     </main>
+<!--SCRIPTS-->  
     <script src="js/clock.js"></script>
+    <script src="js/greetings.js"></script>
 </body>
 </html>
