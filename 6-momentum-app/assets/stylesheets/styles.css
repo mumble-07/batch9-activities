@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
@@ -27,7 +28,7 @@ body {
   margin: 0 auto;
 }
 .clock h1 {
-  font: 90px "Staatliches", cursive;
+  font: 500% "Staatliches", cursive;
   font-weight: bold;
   color: #01295F;
   text-shadow: 2px 2px 4px #EF767A;
@@ -40,21 +41,29 @@ body {
   grid-row-end: 3;
 }
 
-.name, .greetings {
+.name {
   margin-top: 20%;
   margin-bottom: 15%;
   margin: 0 auto;
   margin-left: 10%;
   margin-right: 10%;
-  /* position: absolute;
-  display: none; */
+}
+
+.greetings {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: -10vh;
+  font: 230% "Staatliches", cursive;
+  font-weight: bold;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
 }
 
 .name input {
   width: 25vw;
   height: 6vh;
   margin-top: 15%;
-  font: 100% "Poppins", sans-serif;
+  font: 150% "Poppins", sans-serif;
   border: none;
   background-color: transparent;
 }
@@ -63,11 +72,6 @@ body {
   display: none;
 }
 
-/* .name:hover {
-    color: turquoise;
-    transition-property: width;
-    transition-duration: 2s;
-} */
 .focus-container {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -80,24 +84,44 @@ body {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 7%;
 }
+.focus-container h1 {
+  margin-top: 5%;
+  margin-left: 10%;
+  font: 200% "Poppins", sans-serif;
+  font-weight: bold;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
+}
 
-.focus {
+#focus {
   margin-top: 15%;
   margin-bottom: 15%;
   margin: 0 auto;
   margin-left: 10%;
   margin-right: 10%;
 }
-.focus h1 {
-  font: 150% "Poppins", sans-serif;
-}
 
 #focusjs input {
   width: 25vw;
   height: 6vh;
-  font: 90% "Poppins", sans-serif;
+  margin-top: 0vh;
+  font: 120% "Poppins", sans-serif;
   border: none;
   background-color: transparent;
+}
+
+.show-mfocus {
+  margin-top: 15%;
+  margin-bottom: 15%;
+  margin: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  font: 200% "Cairo", sans-serif;
+  overflow: hidden;
+}
+
+#submitF {
+  display: none;
 }
 
 .quote {
@@ -143,16 +167,143 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
-.todo h1 {
-  font: 150% "Poppins", sans-serif;
+
+.todojs {
+  margin-top: 15%;
+  margin-bottom: 15%;
+  margin: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-#todojs input {
+.toDoTitle {
+  margin-top: 5%;
+  margin-left: 10%;
+  font: 200% "Poppins", sans-serif;
+  font-weight: bold;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
+}
+
+.js-toDoList {
+  margin-top: 5%;
+  margin-left: 10%;
+  font: 100% "Poppins", sans-serif;
+  font-weight: bold;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
+}
+
+.todojs input {
   width: 35vw;
   height: 6vh;
   font: 90% "Poppins", sans-serif;
   border: none;
   background-color: transparent;
+}
+
+#submitTodo {
+  display: none;
+}
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.hide {
+  visibility: hidden;
+  height: 0;
+  -webkit-animation: fadeIn 1.3s;
+  animation: fadeIn 1.3s;
+}
+
+.none {
+  display: none;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+svg {
+  width: 64px;
+  height: 64px;
+}
+
+.todo-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.todo-item {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item span {
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+.done span {
+  text-decoration: line-through;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.tick {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #333;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tick::before {
+  content: "✓";
+  font-size: 20px;
+  display: none;
+}
+
+.done .tick::before {
+  display: inline;
+}
+
+.delete-todo {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.delete-todo svg {
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

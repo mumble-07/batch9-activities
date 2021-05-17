@@ -5,6 +5,7 @@ let todoItem = [];
 
 function renderTodo (todo) {
   const list = document.querySelector('js-toDoList');
+  
   const isChecked = todo.checked ? 'done': '';
   const node = document.createElement("li");
   node.setAttribute('class', `todo-item ${isChecked}`);
