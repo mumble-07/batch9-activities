@@ -1,21 +1,16 @@
-let yourName = document.querySelector(".name");
-let getName = yourName.querySelector(".input");
-let sbmt = document.getElementById ("submit");
-let greet = document.querySelector("greetings");
+const nameJs = document.querySelector(".name");
+const input = document.getElementById("input");
+const sbmt = document.getElementById("submit");
+const greet = document.querySelector(".greetings");
+const greetText = greet.querySelector("h3");
 
-
-
-
-sbmt.addEventListener('click', () => {
-  greet.innerText = greet.value;
-});
-
-
-function showGreeting(){
-  greet.innerText = `Hello, ${getName}`;
+function showGreet (){
+  sbmt.addEventListener('submit', ()=> {
+    greetText.innerText = 'Good day, ${input}';
+  })
 }
 
-
+showGreet();
 
 
 
