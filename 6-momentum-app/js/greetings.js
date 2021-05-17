@@ -1,31 +1,26 @@
-const nameJs = document.querySelector(".name");
-const input = document.getElementById("input");
-const sbmt = document.getElementById("submit");
-const greet = document.querySelector(".greetings");
-const greetText = greet.querySelector("h3");
+/* let nameCont = document.querySelector(".name"); */
+let yourName = document.getElementById("input");
+let btn = document.getElementById("submit");
 
-function showGreet (){
-  sbmt.addEventListener('submit', ()=> {
-    greetText.innerText = 'Good day, ${input}';
-  })
+
+btn.onclick = function nameSubmit (event) {
+  event.preventDefault();
+  let nameInput = yourName.value;
+  let greetings=document.querySelector(".greetings");
+  greetings.innerText = `Hello there ${nameInput}`;
+  yourName.classList.toggle('hide');
+  greetings.classList.toggle('show');
 }
 
-showGreet();
+/* function hide(){
+yourName.classList.toggle('hide');
+}
+ */
 
 
+/* variableName.classList.toggle('show'); */
 
 
-
-
-
-/* let yourName = document.querySelector(".name");
-let input = yourName.querySelector("input");
-let greetings = document.querySelector(".greetings"); */
-
-
-/* yourName.addEventListener("submit", function getName) {
-    console.log
-} */
 /* 
 let inputUser="inputUser";
 let showUser="showUser";
@@ -65,21 +60,4 @@ function show(){
     loadName();
 };
 
-show();
- */
-
-/* 
-const createName = () => {
-  // inputNameForm.style.display = "block !important"
-  inputNameForm.addEventListener("submit", event => {
-    event.preventDefault()
-    //read input
-    state.name = document.querySelector(".name").value
-    saveState()
-    inputNameForm.reset()
-    console.log(state.name)
-    //set name in greeting
-    createGreeting()
-    createFocus()
-  })
-}*/
+show(); */

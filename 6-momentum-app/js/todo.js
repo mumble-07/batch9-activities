@@ -1,64 +1,48 @@
-var todoItems = [];
+/* 
+const listTodo = document.querySelector(".js-listTodo"); */
 
-function ToDo (description) {
-    // code here
-      { this.description = description;
-        this.complete = false;}
+let todoItem = [];
 
-        ToDo.prototype.completeToDo = function() 
-        {this.complete = true;}
-
-        function buildToDo(todo, index) {
-            // code here
-          
-              var toDoShell = document.createElement ('div');
-                  toDoShell.className = 'toDoShell';
-          
-              var toDoText = document.createElement('span');
-                  toDoText.innerHTML = todo.description;
-                  toDoText.id = index;
-                  toDoText.addEventListener('click', completeToDo);
-              const toDoCheck = document.createElement('input');
-                  toDoCheck.type = 'checkbox';
-                  toDoCheck.id = index;
-                  toDoCheck.className = 'completeCheckbox';
-
-                  if(ToDo.complete === true)
-                  { 
-                    ToDo.complete = 'completeText';
-                    toDoCheck.checked = true;
-                  }
-                        toDoShell.appendChild(toDoText);
-                        toDoShell.appendChild(toDoCheck);
-                  
-                return toDoShell;
-                }
-
-                function buildToDos(toDos) {
-                    // code here
-                    const array = toDos.map(buildToDo);
-                    return array;
-                  }
-
-                  function displayToDos() {
-                    // code here
-                    const toDoContainer = document.querySelector('#toDoContainer');
-                          toDoContainer.innerHTML = '';
-                    const arr = buildToDos(toDoItems);
-                          arr.forEach(function(element)
-                    {
-                          toDoContainer.appendChild(element);
-                    });
-                  }
-                  
-
-                  function addToDo() {
-                    // code here
-                    const ToDoObject = new ToDo(document.querySelector('#toDoInput').value);
-                          toDoItems.push(ToDoObject);
-                    document.querySelector('#toDoInput').value = '';
-                    displayToDos();
+function renderTodo (todo) {
+  const list = document.querySelector('js-toDoList');
+  const isChecked = todo.checked ? 'done': '';
+  const node = document.createElement("li");
+  node.setAttribute('class', `todo-item ${isChecked}`);
+  node.setAttribute('data-key', todo.id);
+  node.innerHTML = `
+    <input id="${todo.id}" type="checkbox"/>
+    <label for="${todo.id}" class="tick js-tick"></label>
+    <span>${todo.text}</span>
+    <button class="delete-todo js-delete-todo">
+    <svg><use href="#delete-icon"></use></svg>
+    </button>
+  `;
+  list.append(node);
+}
 
 
-                    addButton = document.querySelector('#addButton');
-addButton.onclick = addToDo;
+
+function addTodo(text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now(),
+  };
+  todoItem.push(todo);
+  /* console.log(todoItem); */
+  renderTodo(todo);
+}
+
+const formTodo = document.querySelector(".todojs");
+formTodo.addEventListener('submit', event =>{
+  event.preventDefault();
+  const toDoInput = formTodo.querySelector("input");
+  const text = toDoInput.value.trim(); 
+  if (text != '') {
+    addTodo(text);
+    formTodo.value = '';
+    input.focus();
+  }
+});
+
+
