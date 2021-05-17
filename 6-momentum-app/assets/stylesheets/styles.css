@@ -4,7 +4,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-image: url("../images/bg8.jpg");
+  background-image: url("../images/bg14.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -33,16 +33,21 @@ body {
   text-shadow: 2px 2px 4px #EF767A;
 }
 
-.name, .greetings {
+.name-container {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
+}
+
+.name, .greetings {
   margin-top: 20%;
   margin-bottom: 15%;
   margin: 0 auto;
   margin-left: 10%;
   margin-right: 10%;
+  /* position: absolute;
+  display: none; */
 }
 
 .name input {
@@ -63,11 +68,20 @@ body {
     transition-property: width;
     transition-duration: 2s;
 } */
-.focus {
+.focus-container {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 7;
+  width: 80%;
+  height: 90%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 7%;
+}
+
+.focus {
   margin-top: 15%;
   margin-bottom: 15%;
   margin: 0 auto;
@@ -75,13 +89,13 @@ body {
   margin-right: 10%;
 }
 .focus h1 {
-  font: 180% "Poppins", sans-serif;
+  font: 150% "Poppins", sans-serif;
 }
 
 #focusjs input {
-  width: 30vw;
+  width: 25vw;
   height: 6vh;
-  font: 100% "Poppins", sans-serif;
+  font: 90% "Poppins", sans-serif;
   border: none;
   background-color: transparent;
 }
@@ -96,24 +110,33 @@ body {
   margin-right: 10%;
 }
 .quote h2 {
-  font: 200% "Cairo", sans-serif;
+  font: 180% "Cairo", sans-serif;
   margin-bottom: 2px;
   color: #01295F;
   text-shadow: 2px 2px 4px #EF767A;
 }
 .quote h4 {
-  font: 120% "Cairo", sans-serif;
+  font: 100% "Cairo", sans-serif;
   margin-left: 10%;
   line-height: 2px;
   color: #01295F;
   text-shadow: 2px 2px 4px #EF767A;
 }
 
-.todo {
+.todo-container {
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 7;
+  width: 80%;
+  height: 90%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 7%;
+}
+
+.todo {
   margin-top: 15%;
   margin-bottom: 15%;
   margin: 0 auto;
@@ -121,13 +144,13 @@ body {
   margin-right: 10%;
 }
 .todo h1 {
-  font: 180% "Poppins", sans-serif;
+  font: 150% "Poppins", sans-serif;
 }
 
 #todojs input {
-  width: 30vw;
+  width: 35vw;
   height: 6vh;
-  font: 100% "Poppins", sans-serif;
+  font: 90% "Poppins", sans-serif;
   border: none;
   background-color: transparent;
 }

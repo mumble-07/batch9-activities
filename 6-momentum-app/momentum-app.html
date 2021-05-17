@@ -14,19 +14,23 @@
             <h1>00:00:00</h1><!--US2-->
         </div>
 <!--NAME-->
-        <form class="name">
-            <!-- <label>Hello there!</label><br> --><!--US1-->
-            <input type="text" placeholder="What's your name?"><br>
-            <input type="submit" id="submit" value="send">
-        </form>
-<!--GREETINGS-->
-        <h2 class="greetings"></h2><!--US3--> 
+        <div class="name-container">
+            <form class="name">
+                <!-- <label>Hello there!</label><br> --><!--US1-->
+                <input type="text" id="input" placeholder="What's your name?"><br>
+                <input type="submit" id="submit" value="send">
+            </form>
+        <!--GREETINGS-->
+        <h3 class="greetings"></h3><!--US3-->
+        </div>
 <!--MAIN FOCUS-->
-        <div class="focus">
-            <h1>What is your main focus today?</h1><!--US4-->
-        <form id="focusjs">
-            <input type="text" placeholder="Focus today?"/>
-        </form>
+        <div class="focus-container">
+            <div class="focus">
+                <h1>What is your main focus today?</h1><!--US4-->
+            <form id="focusjs">
+                <input type="text" placeholder="Focus today?"/>
+            </form>
+            </div>
         </div>
 <!--QUOTES-->
         <div class="quote"><!--US5-->
@@ -34,11 +38,13 @@
             <h4>- J.R.R. Tolkien</h4>
         </div>
 <!--TO DO LIST-->
-        <div class="todo">
-            <h1>To Do List</h1>
-        <form id="todojs">
-            <input type="text" placeholder="Write task here"/>
-        </form>
+        <div class="todo-container">
+            <div class="todo">
+                <h1>To Do List</h1>
+            <form id="todojs">
+                <input type="text" placeholder="Write task here"/>
+            </form>
+            </div>
         </div>
     </main>
 <!--SCRIPTS-->  

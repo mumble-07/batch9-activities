@@ -9,7 +9,7 @@ $fontQ: 'Cairo', sans-serif;
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url("../images/bg8.jpg");
+    background-image: url("../images/bg14.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -38,16 +38,21 @@ body {
     }
 }
 
-.name, .greetings {
+.name-container {
     grid-column-start: 1;
     grid-column-end: 2; 
     grid-row-start: 2;
     grid-row-end: 3;
+}
+
+.name, .greetings {
     margin-top: 20%;
     margin-bottom: 15%;
     margin: 0 auto;
     margin-left: 10%;
     margin-right: 10%;
+    /* position: absolute;
+    display: none; */
   }
 
 .name input {
@@ -69,25 +74,34 @@ body {
     transition-duration: 2s;
 } */
 
-.focus {
+.focus-container {
     grid-column-start: 1;
     grid-column-end: 2; 
     grid-row-start: 3;
     grid-row-end: 7;
+    width: 80%;
+    height: 90%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: rgba(255, 255, 255,0.3);
+    border-radius: 7%;
+}
+
+.focus {
     margin-top: 15%;
     margin-bottom: 15%;
     margin: 0 auto;
     margin-left: 10%;
     margin-right: 10%;
     h1 {
-        font: 180% $fontH;
+        font: 150% $fontH;
     }
 }
 
 #focusjs input {
-    width: 30vw;
+    width: 25vw;
     height: 6vh;
-    font: 100% $fontH;
+    font: 90% $fontH;
     border: none;
     background-color: transparent;
 }
@@ -101,13 +115,13 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     h2 {
-        font: 200% $fontQ;
+        font: 180% $fontQ;
         margin-bottom: 2px;
         color: #01295F;
         text-shadow: 2px 2px 4px #EF767A;
     }
     h4 {
-        font: 120% $fontQ;
+        font: 100% $fontQ;
         margin-left: 10%;
         line-height:2px;
         color: #01295F;
@@ -115,25 +129,34 @@ body {
     }
 }
 
-.todo {
+.todo-container {
     grid-column-start: 2;
     grid-column-end: 4; 
     grid-row-start: 3;
     grid-row-end: 7;
+    width: 80%;
+    height: 90%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: rgba(255, 255, 255,0.3);
+    border-radius: 7%;
+}
+
+.todo {
     margin-top: 15%;
     margin-bottom: 15%;
     margin: 0 auto;
     margin-left: 10%;
     margin-right: 10%;
     h1 {
-        font: 180% $fontH;
+        font: 150% $fontH;
     }
 }
 
 #todojs input {
-    width: 30vw;
+    width: 35vw;
     height: 6vh;
-    font: 100% $fontH;
+    font: 90% $fontH;
     border: none;
     background-color: transparent;
 }
