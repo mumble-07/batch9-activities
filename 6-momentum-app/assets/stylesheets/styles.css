@@ -16,9 +16,10 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 40% 30% 30%;
-  grid-template-rows: 20% 20% 10% 15% 15% 20%;
+  grid-template-rows: 20% 10% 10% 10% 15% 15% 20%;
 }
 
+/* CLOCK */
 .clock {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -33,11 +34,12 @@ body {
   text-shadow: 2px 2px 4px #EF767A;
 }
 
+/* NAME */
 .name-container {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-end: 4;
 }
 
 .name {
@@ -72,11 +74,12 @@ body {
   display: none;
 }
 
+/* MAIN FOCUS */
 .focus-container {
   grid-column-start: 1;
   grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 8;
   width: 80%;
   height: 90%;
   margin-left: 10%;
@@ -125,34 +128,92 @@ body {
   display: none;
 }
 
+/* QUOTES */
 .quote {
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 3;
   margin: 5% auto;
   margin-left: 10%;
   margin-right: 10%;
-  /*   h2 {
-        font: 180% $fontQ;
-        margin-bottom: 2px;
-        color: #01295F;
-        text-shadow: 2px 2px 4px #EF767A;
-    }
-    h4 {
-        font: 100% $fontQ;
-        margin-left: 10%;
-        line-height:2px;
-        color: #01295F;
-        text-shadow: 2px 2px 4px #EF767A;
-    } */
 }
 
-.todo-container {
+#quote-here {
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 3;
-  grid-row-end: 7;
+  grid-row-end: 4;
+  font: 180% "Cairo", sans-serif;
+  margin-bottom: 2px;
+  color: #01295F;
+  text-shadow: 2px 2px 4px #EF767A;
+}
+
+#buttonQ {
+  width: 5vw;
+  height: 5vh;
+  background-color: #EF767A;
+  border: none;
+  border-radius: 10%;
+  color: #01295F;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+#quote-button {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#quote-button {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: stretch;
+  position: relative;
+}
+
+#inputQ {
+  width: 30vw;
+  height: 5vh;
+  font: 100% "Poppins", sans-serif;
+  border-top: transparent;
+  border-right: transparent;
+  border-left: transparent;
+  border-width: 1px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#addQuotebtn {
+  width: 3vw;
+  height: 5vh;
+  background-color: #EF767A;
+  border: none;
+  border-radius: 10%;
+  color: #01295F;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+/* TO DO LIST */
+.todo-container {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 8;
   width: 80%;
   height: 90%;
   margin-left: 10%;
@@ -189,7 +250,7 @@ body {
 #inputTodojs {
   width: 30vw;
   height: 5vh;
-  font: 90% "Poppins", sans-serif;
+  font: 100% "Poppins", sans-serif;
   border-top: transparent;
   border-right: transparent;
   border-left: transparent;
@@ -208,12 +269,20 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 150%;
+  font-size: 100%;
   cursor: pointer;
 }
 
+#toDoSection {
+  margin-bottom: 60%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: #01295F;
+}
+
+/* JS STYLES */
 .todoList-style {
-  font: 150% "Cairo", sans-serif;
+  font: 100% "Cairo", sans-serif;
   line-height: 10%;
   color: #01295F;
   cursor: pointer;
@@ -230,27 +299,6 @@ body {
   height: 0;
   -webkit-animation: fadeIn 1.3s;
   animation: fadeIn 1.3s;
-}
-
-.none {
-  display: none;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 /*# sourceMappingURL=styles.css.map */
