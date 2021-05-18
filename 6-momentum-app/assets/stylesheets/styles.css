@@ -133,19 +133,19 @@ body {
   margin: 5% auto;
   margin-left: 10%;
   margin-right: 10%;
-}
-.quote h2 {
-  font: 180% "Cairo", sans-serif;
-  margin-bottom: 2px;
-  color: #01295F;
-  text-shadow: 2px 2px 4px #EF767A;
-}
-.quote h4 {
-  font: 100% "Cairo", sans-serif;
-  margin-left: 10%;
-  line-height: 2px;
-  color: #01295F;
-  text-shadow: 2px 2px 4px #EF767A;
+  /*   h2 {
+        font: 180% $fontQ;
+        margin-bottom: 2px;
+        color: #01295F;
+        text-shadow: 2px 2px 4px #EF767A;
+    }
+    h4 {
+        font: 100% $fontQ;
+        margin-left: 10%;
+        line-height:2px;
+        color: #01295F;
+        text-shadow: 2px 2px 4px #EF767A;
+    } */
 }
 
 .todo-container {
