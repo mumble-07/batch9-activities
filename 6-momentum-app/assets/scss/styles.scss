@@ -70,6 +70,7 @@ body {
     font: 150% $fontH;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 #submit {
@@ -112,7 +113,7 @@ body {
     font: 120% $fontH;
     border: none;
     background-color: transparent;
-  
+    cursor: pointer;
 }
 
 .show-mfocus {
@@ -190,25 +191,38 @@ body {
         text-shadow: 2px 2px 4px #EF767A;
    }
 
-.js-toDoList {
-    margin-top: 5%;
-        margin-left: 10%;
-        font: 100% $fontH;
-        font-weight: bold;
-        color: #01295F;
-        text-shadow: 2px 2px 4px #EF767A;
-}
 
-.todojs input {
-    width: 35vw;
-    height: 6vh;
+#inputTodojs {
+    width: 30vw;
+    height: 5vh;
     font: 90% $fontH;
-    border: none;
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-width: 1px;
     background-color: transparent;
+    cursor: pointer;
 }
 
-#submitTodo {
-    display: none;
+#addToDo {
+    width: 3vw;
+    height: 5vh;
+    background-color: #EF767A;
+    border: none;
+    border-radius: 10%;
+    color: #01295F;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 150%;
+    cursor: pointer;
+}
+
+.todoList-style {
+    font: 150% $fontQ;
+        line-height:10%;
+        color: #01295F;
+        cursor: pointer;
 }
 
 
@@ -239,72 +253,3 @@ body {
     to {opacity: 1;}
 }
 
-
-
-svg {
-    width: 64px;
-    height: 64px;
-  }
-  
-  .todo-list {
-    list-style: none;
-    margin-bottom: 20px;
-  }
-  
-  .todo-item {
-    margin-bottom: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .todo-item span {
-    flex-grow: 1;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 22px;
-  }
-  
-  .done span {
-    text-decoration: line-through;
-  }
-  
-  input[type="checkbox"] {
-    display: none;
-  }
-  
-  .tick {
-    width: 30px;
-    height: 30px;
-    border: 3px solid #333;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .tick::before {
-    content: '✓';
-    font-size: 20px;
-    display: none;
-  }
-  
-  .done .tick::before {
-    display: inline;
-  }
-  
-  .delete-todo {
-    border: none;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .delete-todo svg {
-    width: 30px;
-    height: 30px;
-    pointer-events: none;
-  }
-  

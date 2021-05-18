@@ -15,21 +15,21 @@
         </div>
 <!--NAME-->
         <div class="name-container">
-            <form class="name">
+            <form class="name" autocomplete="off">
                 <!-- <label>Hello there!</label><br> --><!--US1-->
                 <input type="text" id="input" placeholder="Greetings! What's your name?"><br>
                 <input type="submit" id="submit" value="send">
             </form>
-        <div class="greetings">></div><!--US3-->
+        <div class="greetings"></div><!--US3-->
         </div>
 <!--MAIN FOCUS-->
         <div class="focus-container">
                 <!-- <h1>What is your main focus today?</h1>--><!--US4--> 
-            <form id="focusjs">
+            <form id="focusjs" autocomplete="off">
                 <h1>Main focus</h1>
                 <input type="text" id="focus" placeholder="What's your main focus for today?"/>
                 <input type="submit" id="submitF" value="check">
-                <div class="show-mfocus">1</div>
+                <div class="show-mfocus"></div>
             </form>
         </div>
 <!--QUOTES-->
@@ -41,13 +41,14 @@
         <div class="todo-container">
             <div class="todo">
                 <div class="toDoTitle">To Do List</div>
-                <ul class='js-toDoList'></ul>
             </div>
-            <form class="todojs">
-                <input type="text" placeholder="Write task here"/>
-                <input type="submit" id="submitTodo" value="check">
+            <form class="todojs" autocomplete="off">
+                <input type="text" id="inputTodojs" placeholder="What are you doing my friend?">
+                <button id="addToDo">+</button>
+                <div id="toDoSection"></div>
+                
             </form>
-            </div>
+        </div>
     </main>
 <!--SCRIPTS-->  
     <script src="js/clock.js"></script>
