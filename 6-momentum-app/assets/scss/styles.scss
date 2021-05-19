@@ -4,12 +4,18 @@
 
 $fontT: 'Staatliches', cursive;
 $fontH: 'Poppins', sans-serif;
-$fontQ: 'Cairo', sans-serif;
+$fontQ: 'Segoe UI', sans-serif;/* 'Cairo', sans-serif; */
+
+$mobileS: 320px;
+$mobileM: 375px;
+$mobileL: 430px;
+$tablet: 770px;
+$laptop: 1024px;
 
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url("../images/bg14.jpg");
+    background-image: url("../images/bg16.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -32,21 +38,38 @@ body {
     grid-row-start: 1;
     grid-row-end: 2;
     margin: 0 auto;
+    margin-bottom: 100%;
     h1 {
-        font: 500% $fontT;
+        margin-left: 10%;
+        margin-bottom: 50%;
+        font: 500% $fontQ;
         font-weight: bold;
-        color: #01295F;
-        text-shadow: 2px 2px 4px #EF767A;
+        color: #00798C;
+        text-shadow: 3px 3px 5px #F9B9B7;
     }
 }
 
 /* NAME */
 
+.greetings {
+    grid-column-start: 1;
+    grid-column-end: 2; 
+    grid-row-start: 3;
+    grid-row-end: 4;
+}   
+
 .name-container {
     grid-column-start: 1;
     grid-column-end: 2; 
-    grid-row-start: 2;
+    grid-row-start: 3;
     grid-row-end: 4;
+}
+
+.name-container {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-around;
+    align-items: stretch;
 }
 
 .name {
@@ -59,22 +82,28 @@ body {
 
   .greetings {
     margin-left: 10%;
-    margin-right: 10%;
-    margin-top: -10vh;
-    font: 230% $fontT;
-    font-weight: bold;
-    color: #01295F;
-    text-shadow: 2px 2px 4px #EF767A;
+    text-align: center;
+    h1 {
+        margin-top: -3%;
+        font: 280% $fontQ;
+        font-weight: bold;
+        color: #00798C;
+        text-shadow: 3px 3px 5px #F9B9B7;
+    }
   }
 
   .name input {
-    width: 25vw;
+    width: 30vw;
     height: 6vh;
-    margin-top: 15%;
-    font: 150% $fontH;
+    margin-left: 10%;
+    font: 120% $fontH;
     border: none;
+    border-bottom: 3px solid #00798C;
     background-color: transparent;
     cursor: pointer;
+    text-align: center;
+    &:focus {
+        outline: none;}
 }
 
 #submit {
@@ -87,20 +116,20 @@ body {
     grid-column-start: 1;
     grid-column-end: 2; 
     grid-row-start: 4;
-    grid-row-end: 8;
-    width: 80%;
-    height: 90%;
+    grid-row-end: 6;
+    width: 90%;
+    height: 80%;
+    margin-top: 8%;
     margin-left: 10%;
-    margin-right: 10%;
     background: rgba(255, 255, 255,0.3);
-    border-radius: 7%;
+    border-radius: 15px;
     h1 {
-        margin-top: 5%;
+        margin-top: 3%;
         margin-left: 10%;
         font: 200% $fontH;
         font-weight: bold;
-        color: #01295F;
-        text-shadow: 2px 2px 4px #EF767A;
+        color: #00798C;
+        text-shadow: 3px 3px 5px #F9B9B7;
     }
 }
 
@@ -120,15 +149,17 @@ body {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    &:focus {
+        outline: none;}
 }
 
 .show-mfocus {
-    margin-top: 15%;
-    margin-bottom: 15%;
-    margin: 0 auto;
     margin-left: 10%;
     margin-right: 10%;
-    font: 200% $fontQ;
+    margin-top: -10%;
+    margin-bottom: 15%;
+    font: 180% $fontQ;
+    color: #201E1F;
     overflow: hidden;
 }
 
@@ -143,7 +174,7 @@ body {
     grid-column-end: 4; 
     grid-row-start: 1;
     grid-row-end: 3;
-    margin: 5% auto;
+    margin: 10% auto;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -155,8 +186,8 @@ body {
     grid-row-end: 4;
     font: 180% $fontQ;
     margin-bottom: 2px;
-    color: #01295F;
-    text-shadow: 2px 2px 4px #EF767A;
+    color: #00798C;
+    text-shadow: 3px 3px 5px #F9B9B7;
 }
 
 #buttonQ {
@@ -165,7 +196,7 @@ body {
     background-color: #EF767A;
     border: none;
     border-radius: 10%;
-    color: #01295F;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -192,30 +223,35 @@ body {
 }
 
 #inputQ {
-    width: 30vw;
+    width: 35vw;
     height: 5vh;
-    font: 100% $fontH;
+    margin-left: -5%;
+    font: 120% $fontH;
     border-top: transparent;
     border-right: transparent;
     border-left: transparent;
-    border-width: 1px;
+    border-bottom: 3px solid #00798C;
     background-color: transparent;
     cursor: pointer;
+    text-align: center;
+    &:focus {
+        outline: none;}
 }
 
 #addQuotebtn {
-
     width: 3vw;
     height: 5vh;
+    margin-left: 5%;
     background-color: #EF767A;
     border: none;
     border-radius: 10%;
-    color: #01295F;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 100%;
     cursor: pointer;
+    
 }
 
 
@@ -231,7 +267,7 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     background: rgba(255, 255, 255,0.3);
-    border-radius: 7%;
+    border-radius: 15px;
 }
 
 .todo{
@@ -253,23 +289,31 @@ body {
 .toDoTitle {
         margin-top: 5%;
         margin-left: 10%;
+        margin-right: 10%;
         font: 200% $fontH;
         font-weight: bold;
-        color: #01295F;
-        text-shadow: 2px 2px 4px #EF767A;
+        color: #00798C;
+        text-shadow: 3px 3px 5px #F9B9B7;
+        text-align: center;
    }
 
 
 #inputTodojs {
-    width: 30vw;
+    width: 25vw;
     height: 5vh;
-    font: 100% $fontH;
+    margin-top: 2%;
+    margin-left: 17%;
+    margin-right: 10%;
+    font: 120% $fontH;
     border-top: transparent;
     border-right: transparent;
     border-left: transparent;
-    border-width: 1px;
+    border-bottom: 3px solid #00798C;
     background-color: transparent;
     cursor: pointer;
+    text-align: center;
+    &:focus {
+        outline: none;}
 }
 
 #addToDo {
@@ -278,27 +322,28 @@ body {
     background-color: #EF767A;
     border: none;
     border-radius: 10%;
-    color: #01295F;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 100%;
     cursor: pointer;
+    visibility: hidden;
 }
 
 #toDoSection {
     margin-bottom: 60%;
     margin-left: 10%;
     margin-right: 10%;
-    color: #01295F;
+    color: #00798C;
 }
 
 /* JS STYLES */
 
 .todoList-style {
-    font: 100% $fontQ;
+    font: 120% $fontQ;
     line-height:10%;
-    color: #01295F;
+    color: #201E1F;
     cursor: pointer;
 }
 
@@ -311,6 +356,302 @@ body {
 .hide {
     visibility: hidden;
     height: 0;
-    -webkit-animation: fadeIn 1.3s;
-    animation: fadeIn 1.3s;
+    -webkit-animation: fadeIn 1.5s;
+    animation: fadeIn 1.5s;
 }
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: $mobileS), (max-width: $mobileM), 
+(max-width: $mobileL), (max-width: $tablet) {
+            
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-image: url("../images/bg8.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+        #main {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 30% 20% 20% 30%;
+            grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 20%;
+        }
+
+        /* CLOCK */
+
+        .clock {
+            grid-column-start: 1;
+            grid-column-end: 5; 
+            grid-row-start: 1;
+            grid-row-end: 2;
+            margin-bottom: 10%;
+            h1 {
+                margin: 0 auto;
+                font: 250% $fontQ;
+                font-weight: bold;
+                color: #00798C;
+                text-shadow: 3px 3px 5px #F9B9B7;
+            }
+        }
+
+        /* NAME */
+
+        .greetings {
+            grid-column-start: 1;
+            grid-column-end: 5; 
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }   
+
+        .name-container {
+            grid-column-start: 1;
+            grid-column-end: 5; 
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+
+        .name-container {
+            display: flex;
+            align-content: stretch;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .name {
+            margin-top: 5%;
+            margin-bottom: 15%;
+            margin: 0 auto;
+        }
+
+        .greetings {
+            text-align: center;
+            h1 {
+                margin-left: -10%;
+                margin-top: 2%;
+                font: 150% $fontQ;
+                font-weight: bold;
+                color: #00798C;
+                text-shadow: 3px 3px 5px #F9B9B7;
+            }
+        }
+
+        .name input {
+            width: 50vw;
+            height: 6vh;
+            font: 60% $fontH;
+            margin-left: 0;
+        }
+
+        #submit {
+            display: none;
+        }
+
+        /* MAIN FOCUS */
+
+        .focus-container {
+            grid-column-start: 1;
+            grid-column-end: 3; 
+            grid-row-start: 5;
+            grid-row-end: 7;
+            width: 90%;
+            height: 150%;
+            margin-top: 8%;
+            margin-left: 5%;
+            background: rgba(255, 255, 255,0.3);
+            border-radius: 15px;
+            h1 {
+                margin-top: 3%;
+                margin-left: 5%;
+                font: 150% $fontH;
+                font-weight: bold;
+                color: #00798C;
+                text-shadow: 3px 3px 5px #F9B9B7;
+            }
+        }
+
+        #focus {
+            margin-top: 15%;
+            margin-bottom: 15%;
+            margin: 0 auto;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        #focusjs input {
+            width: 30vw;
+            height: 7vh;
+            margin-top: 0vh;
+            font: 40% $fontH;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            &:focus {
+                outline: none;}
+        }
+
+        .show-mfocus {
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: -10%;
+            margin-bottom: 15%;
+            font: 150% $fontQ;
+            color: #201E1F;
+            overflow: hidden;
+        }
+
+        #submitF {
+            display: none;
+        }
+
+        /* QUOTES */
+
+        .quote {
+            grid-column-start: 1;
+            grid-column-end: 5; 
+            grid-row-start: 3;
+            grid-row-end: 4;
+            margin: 0 auto;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        #quote-here {
+            grid-column-start: 1;
+            grid-column-end: 2; 
+            grid-row-start: 1;
+            grid-row-end: 5;
+            font: 100% $fontQ;
+            margin-bottom: 2px;
+            color: #00798C;
+            text-shadow: 3px 3px 5px #F9B9B7;
+        }
+
+        #buttonQ {
+            width: 12vw;
+            height: 5vh;
+            background-color: #EF767A;
+            border: none;
+            border-radius: 2px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 60%;
+            cursor: pointer;
+        }
+
+        #quote-button {
+            grid-column-start: 1;
+            grid-column-end: 5; 
+            grid-row-start: 4;
+            grid-row-end: 5;
+        }
+
+        #quote-button {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: relative;
+            align-content: space-around;
+        }
+
+        #inputQ {
+            width: 55vw;
+            height: 5vh;
+            margin-left: -5%;
+            font: 70% $fontH;
+            border-top: transparent;
+            border-right: transparent;
+            border-left: transparent;
+            border-bottom: 2px solid #00798C;
+            background-color: transparent;
+            cursor: pointer;
+            text-align: center;
+            &:focus {
+                outline: none;}
+        }
+
+        #addQuotebtn {
+            width: 6vw;
+            height: 5vh;
+            margin-left: 0%;
+            background-color: #EF767A;
+            border: none;
+            border-radius: 10%;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 100%;
+            cursor: pointer;
+        }
+
+
+        /* TO DO LIST */
+
+        .todo-container {
+            grid-column-start: 3;
+            grid-column-end: 5; 
+            grid-row-start: 5;
+            grid-row-end: 10;
+            width: 80%;
+            height: 90%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255,0.3);
+            border-radius: 15px;
+        }
+
+        .todo{
+            margin-top: 10%;
+            margin: 0 auto;
+        }
+
+        .todojs{
+            margin-top: 15%;
+            margin-bottom: 15%;
+            margin: 0 auto;
+            margin-left: 10%;
+            margin-right: 5%;
+        }
+
+        .toDoTitle {
+                margin-top: 15%;
+                margin-left: 5%;
+                margin-right: 5%;
+                font: 120% $fontH;
+                font-weight: bold;
+                color: #00798C;
+                text-shadow: 3px 3px 5px #F9B9B7;
+                text-align: center;
+        }
+
+        #inputTodojs {
+            width: 30vw;
+            height: 5vh;
+            margin-left: -5%;
+            margin-top: 2%;
+            font: 30% $fontH;
+            border-top: transparent;
+            border-right: transparent;
+            border-left: transparent;
+            border-bottom: 1px solid #00798C;
+            background-color: transparent;
+            cursor: pointer;
+            text-align: center;
+            &:focus {
+                outline: none;}
+        }
+
+        #toDoSection {
+            margin-bottom: 60%;
+            margin-left: 0%;
+            margin-right: 0%;
+            color: #00798C;
+        }
+} 

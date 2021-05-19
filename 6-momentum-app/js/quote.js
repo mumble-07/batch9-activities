@@ -4,9 +4,17 @@ let output = document.getElementById("quote-here");
 /*  */
 
 let quotes = [
-    '"The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees Opportunity In Every Difficulty.” – Winston Churchill', 
-    '“Don’t Let Yesterday Take Up Too Much Of Today.” – Will Rogers',
-    '“You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character.” – Unknown'
+    '"A bow and arrow is old-fashioned, but sometimes old ways are best." – Sova', 
+    '"We are strong because we\'re together. Don\'t forget that." – Sova',
+    '"If you\'re not a good shot today, don\'t worry. There are other ways to be useful." - Sova',
+    '"Good. Keep your focus." - Omen',
+    '"A warrior is known by his deeds, not his mouth. - Astra"',
+    '"My plan may sound irrational, only \'cause you cannot see what I can!" - Astra',
+    '"We saw the beginning and the continuation. Now... the end!" - Astra',
+    '"Don\'t stop fighting\, you must keep going even if you\'re the only one." - Yoru',
+    '"They think they put us in the dirt, they\'re gonna find out we weren\'t buried, just planted." - Skye',
+    '"I believe in all of you like I believe in myself." - Sova',
+    '"You were a boulder. I am a mountain!" -Sage'
     ];
 
 randombtnQ.addEventListener('click', function(){

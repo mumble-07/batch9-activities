@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momentum-App</title>
     <link rel="stylesheet" href="assets/stylesheets/styles.css">
+    <link rel="icon" href="assets/images/icon.png">
 </head>
 <body>
     <main id="main">
@@ -17,16 +18,19 @@
         <div class="name-container">
             <form class="name" autocomplete="off">
                 <!-- <label>Hello there!</label><br> --><!--US1-->
-                <input type="text" id="input" placeholder="Greetings! What's your name?"><br>
+                <input type="text" id="input" required placeholder="What's your name my friend?"><br>
                 <input type="submit" id="submit" value="send">
             </form>
-        <div class="greetings"></div><!--US3-->
         </div>
+        <div class="greetings">
+            <h1 id= "hello"></h1>
+        </div><!--US3-->
+        
 <!--MAIN FOCUS-->
         <div class="focus-container">
                 <!-- <h1>What is your main focus today?</h1>--><!--US4--> 
             <form id="focusjs" autocomplete="off">
-                <h1>Main focus</h1>
+                <h1>Main Focus</h1>
                 <input type="text" id="focus" placeholder="What's your main focus for today?"/>
                 <input type="submit" id="submitF" value="check">
                 <div class="show-mfocus"></div>
@@ -34,12 +38,12 @@
         </div>
 <!--QUOTES-->
         <div class="quote"><!--US5-->
-            <div id="quote-here"></div>
+            <div id="quote-here">"If you're not a good shot today, don't worry. There are other ways to be useful." - Sova</div>
         </div>
         <div id="quote-button">
             <button id="buttonQ">shuffle</button>
                 <form class="quoteForm" autocomplete="off">
-                    <input type="text" id="inputQ" placeholder="add kowts">
+                    <input type="text" id="inputQ" placeholder="Add quotes">
                     <button id="addQuotebtn">+</button>
                 </form>
         </div> 
