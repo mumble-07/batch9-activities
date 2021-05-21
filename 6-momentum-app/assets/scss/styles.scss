@@ -456,38 +456,35 @@ body {
 
         .focus-container {
             grid-column-start: 1;
-            grid-column-end: 3; 
+            grid-column-end: 5; 
             grid-row-start: 5;
-            grid-row-end: 7;
+            grid-row-end: 6;
             width: 90%;
             height: 150%;
-            margin-top: 8%;
-            margin-left: 5%;
+            margin-left: 3%;
             background: rgba(255, 255, 255,0.3);
             border-radius: 15px;
             h1 {
-                margin-top: 3%;
-                margin-left: 5%;
-                font: 150% $fontH;
+                font: 130% $fontH;
                 font-weight: bold;
                 color: #00798C;
                 text-shadow: 3px 3px 5px #F9B9B7;
+                text-align: center;
             }
         }
 
         #focus {
-            margin-top: 15%;
-            margin-bottom: 15%;
+            margin-top: 5%;
             margin: 0 auto;
             margin-left: 10%;
             margin-right: 10%;
         }
 
         #focusjs input {
-            width: 30vw;
+            width: 60vw;
             height: 7vh;
             margin-top: 0vh;
-            font: 40% $fontH;
+            font: 3vw $fontH;
             border: none;
             background-color: transparent;
             cursor: pointer;
@@ -498,9 +495,8 @@ body {
         .show-mfocus {
             margin-left: 10%;
             margin-right: 10%;
-            margin-top: -10%;
-            margin-bottom: 15%;
-            font: 150% $fontQ;
+            margin-top: -15%;
+            font: 120% $fontQ;
             color: #201E1F;
             overflow: hidden;
         }
@@ -542,7 +538,7 @@ body {
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 60%;
+            font: 65% $fontQ;
             cursor: pointer;
         }
 
@@ -565,7 +561,7 @@ body {
             width: 55vw;
             height: 5vh;
             margin-left: -5%;
-            font: 70% $fontH;
+            font: 3vw $fontH;
             border-top: transparent;
             border-right: transparent;
             border-left: transparent;
@@ -596,13 +592,14 @@ body {
         /* TO DO LIST */
 
         .todo-container {
-            grid-column-start: 3;
+            grid-column-start: 1;
             grid-column-end: 5; 
-            grid-row-start: 5;
+            grid-row-start: 7;
             grid-row-end: 10;
-            width: 80%;
+            width: 90%;
             height: 90%;
             margin: 0 auto;
+            margin-left: 3%;
             background: rgba(255, 255, 255,0.3);
             border-radius: 15px;
         }
@@ -632,11 +629,11 @@ body {
         }
 
         #inputTodojs {
-            width: 30vw;
+            width: 60vw;
             height: 5vh;
             margin-left: -5%;
             margin-top: 2%;
-            font: 30% $fontH;
+            font: 3vw $fontH;
             border-top: transparent;
             border-right: transparent;
             border-left: transparent;
