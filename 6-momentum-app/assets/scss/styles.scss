@@ -47,6 +47,15 @@ body {
         color: #00798C;
         text-shadow: 3px 3px 5px #F9B9B7;
     }
+    h3 {
+        margin-left: 10%;
+        margin-bottom: 30%;
+        margin-top: -50%;
+        font: 150% $fontQ;
+        font-weight: bold;
+        color: #00798C;
+        text-shadow: 3px 3px 5px #F9B9B7;
+    }
 }
 
 /* NAME */
@@ -251,7 +260,6 @@ body {
     display: inline-block;
     font-size: 100%;
     cursor: pointer;
-    
 }
 
 
@@ -338,6 +346,8 @@ body {
     color: #00798C;
 }
 
+
+
 /* JS STYLES */
 
 .todoList-style {
@@ -394,6 +404,12 @@ body {
             h1 {
                 margin: 0 auto;
                 font: 250% $fontQ;
+                font-weight: bold;
+                color: #00798C;
+                text-shadow: 3px 3px 5px #F9B9B7;
+            }
+            h3 {
+                font: 75% $fontQ;
                 font-weight: bold;
                 color: #00798C;
                 text-shadow: 3px 3px 5px #F9B9B7;

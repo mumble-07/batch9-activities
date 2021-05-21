@@ -37,6 +37,15 @@ body {
   color: #00798C;
   text-shadow: 3px 3px 5px #F9B9B7;
 }
+.clock h3 {
+  margin-left: 10%;
+  margin-bottom: 30%;
+  margin-top: -50%;
+  font: 150% "Segoe UI", sans-serif;
+  font-weight: bold;
+  color: #00798C;
+  text-shadow: 3px 3px 5px #F9B9B7;
+}
 
 /* NAME */
 .greetings {
@@ -376,6 +385,12 @@ body {
   .clock h1 {
     margin: 0 auto;
     font: 250% "Segoe UI", sans-serif;
+    font-weight: bold;
+    color: #00798C;
+    text-shadow: 3px 3px 5px #F9B9B7;
+  }
+  .clock h3 {
+    font: 75% "Segoe UI", sans-serif;
     font-weight: bold;
     color: #00798C;
     text-shadow: 3px 3px 5px #F9B9B7;
