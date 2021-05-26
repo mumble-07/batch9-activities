@@ -159,12 +159,11 @@ body
 }
 
 @keyframes slider {
-    0% {margin-top: -400px;}
-    10% {margin-top: -200px;}
-    35% {margin-top: -200px;}
-    45% {margin-top: 0px;}
+    0% {margin-top: -200px;}
+    20% {margin-top: -100px;}
+    40% {margin-top: 0px;}
     60% {margin-top: 0px;}
-    70% { margin-top: 200px;}
+    80% { margin-top: 100px;}
     100% { margin-top: 200px;} 
     }
     @media only screen and (max-width: $mobileS), (max-width: $mobileM), 
