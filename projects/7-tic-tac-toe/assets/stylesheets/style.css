@@ -1,15 +1,17 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
 :root {
   --cell-size: 100px;
-  --mark-size: calc(var(--cell-size) * .9);
+  --mark-size: calc(var(--cell-size) * 0.9);
 }
 
 body {
   margin: 0;
-  background-color: #FAD4C0;
+  background-color: #fad4c0;
   overflow: hidden;
 }
 
@@ -24,6 +26,7 @@ body {
   grid-template-columns: repeat(3, auto);
 }
 
+/* tic tac toe board */
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
@@ -60,36 +63,41 @@ body {
   border-bottom: none;
 }
 
+/* para pag may laman na yung box may not allowed icon sa cursor */
 .cell.x,
 .cell.circle {
   cursor: not-allowed;
 }
 
+/* X and Circle mark */
 .cell.x::before,
 .cell.x::after,
 .cell.circle::before,
 .cell.circle::after {
-  background-color: #7C98B3;
+  background-color: black;
 }
 
+/* for hover  */
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  background-color: #7C98B3;
-  opacity: 0.5;
+  background-color: #7c98b3;
+  opacity: 0.8;
 }
 
+/* For Turn */
 .cell.x::before,
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after {
   content: "";
   position: absolute;
-  width: calc(var(--mark-size) * .15);
+  width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
 }
 
+/* To make X mark */
 .cell.x::before,
 .board.x .cell:not(.x):not(.circle):hover::before {
   transform: rotate(45deg);
@@ -100,6 +108,7 @@ body {
   transform: rotate(-45deg);
 }
 
+/* To make Circle mark */
 .cell.circle::before,
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
@@ -115,14 +124,15 @@ body {
   height: var(--mark-size);
 }
 
+/* inner circle */
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  width: calc(var(--mark-size) * .7);
-  height: calc(var(--mark-size) * .7);
-  background-color: white;
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: #fad4c0;
 }
 
-.winning-message {
+.win-message {
   display: none;
   position: fixed;
   top: 0;
@@ -132,26 +142,26 @@ body {
   background-color: rgba(0, 0, 0, 0.9);
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #fad4c0;
   font-size: 5rem;
   flex-direction: column;
 }
 
-.winning-message button {
+.win-message button {
   font-size: 3rem;
-  background-color: #FAD4C0;
+  background-color: #fad4c0;
   border: 1px solid black;
   padding: 0.25em 0.5em;
   cursor: pointer;
 }
 
-.winning-message button:hover {
-  background-color: #7C98B3;
-  color: #FAD4C0;
-  border-color: #FAD4C0;
+.win-message button:hover {
+  background-color: #7c98b3;
+  color: #fad4c0;
+  border-color: black;
 }
 
-.winning-message.show {
+.win-message.show {
   display: flex;
 }
 

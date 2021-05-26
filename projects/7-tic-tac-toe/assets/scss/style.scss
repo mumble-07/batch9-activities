@@ -1,41 +1,45 @@
-$color: #FAD4C0;
-$hover: #7C98B3;
+$color: #fad4c0;
+$hover: #7c98b3;
 
-
-*, *::after, *::before {
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
 :root {
-    --cell-size: 100px;
-    --mark-size: calc(var(--cell-size) * .9);
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
 }
 
 body {
-    margin: 0;
-    background-color: $color;
-    overflow: hidden;
+  margin: 0;
+  background-color: $color;
+  overflow: hidden;
 }
 
 .board {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: repeat(3, auto);
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
 }
+
+/* tic tac toe board */
+
 .cell {
-    width: var(--cell-size);
-    height: var(--cell-size);
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
 }
 
 /* to remove outside borders ng cells */
@@ -43,125 +47,132 @@ body {
 .cell:first-child,
 .cell:nth-child(2),
 .cell:nth-child(3) {
-    border-top: none;
+  border-top: none;
 }
 
 .cell:nth-child(1),
 .cell:nth-child(4),
 .cell:nth-child(7) {
-    border-left: none;
+  border-left: none;
 }
 
 .cell:nth-child(3),
 .cell:nth-child(6),
 .cell:nth-child(9) {
-    border-right: none;
+  border-right: none;
 }
 
 .cell:nth-child(7),
 .cell:nth-child(8),
 .cell:nth-child(9) {
-    border-bottom: none;
+  border-bottom: none;
 }
+
+/* para pag may laman na yung box may not allowed icon sa cursor */
 
 .cell.x,
-.cell.circle
- {
-    cursor: not-allowed;
+.cell.circle {
+  cursor: not-allowed;
 }
 
-//hovering the x and o with different color
+/* X and Circle mark */
 
 .cell.x::before,
 .cell.x::after,
 .cell.circle::before,
 .cell.circle::after {
-    background-color: $hover;
+  background-color: black;
 }
 
+/* for hover  */
 
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-    background-color: $hover;
-    opacity: .5;
+  background-color: $hover;
+  opacity: 0.8;
 }
 
-//only for x
+/* For Turn */
+
 .cell.x::before,
-.cell.x::after, 
+.cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after {
-    content: "";
-    position: absolute;
-    width: calc(var(--mark-size) * .15);
-    height: var(--mark-size);
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
 }
 
-//making lines into an x
+/* To make X mark */
+
 .cell.x::before,
 .board.x .cell:not(.x):not(.circle):hover::before {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::after {
-    transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
-//making a circle
+/* To make Circle mark */
+
 .cell.circle::before,
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
 }
 
 .cell.circle::before,
 .board.circle .cell:not(.x):not(.circle):hover::before {
-    width: var(--mark-size);
-    height: var(--mark-size);
+  width: var(--mark-size);
+  height: var(--mark-size);
 }
+
+/* inner circle */
 
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-    width: calc(var(--mark-size) * .7);
-    height: calc(var(--mark-size) * .7);
-    background-color: white;
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: $color;
 }
 
-.winning-message {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0, .9);
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 5rem;
-    flex-direction: column;
+.win-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  color: $color;
+  font-size: 5rem;
+  flex-direction: column;
 }
 
-.winning-message button {
-    font-size: 3rem;
-    background-color: $color;
-    border: 1px solid black;
-    padding: .25em .5em;
-    cursor: pointer;
+.win-message button {
+  font-size: 3rem;
+  background-color: $color;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
 }
 
-.winning-message button:hover {
-    background-color: $hover;
-    color: $color;
-    border-color: $color;
+.win-message button:hover {
+  background-color: $hover;
+  color: $color;
+  border-color: black;
 }
 
-.winning-message.show {
-    display: flex
+.win-message.show {
+  display: flex;
 }
