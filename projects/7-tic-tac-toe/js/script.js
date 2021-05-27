@@ -10,22 +10,28 @@ const winningCombinations = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
 const cellElements = document.querySelectorAll("[data-cell]");
 const gameBoard = document.getElementById("board");
+const winMessageElement = document.getElementById("winMessage");
+const restartButton = document.getElementById("restartButton");
+const winMessageTextElement = document.querySelector("[data-win-message-text]");
 let circleTurn;
 
-cellElements.forEach((cell) => {
-  cell.addEventListener("click", handleClick, { once: true });
-});
-
 gameStart();
+
+restartButton.addEventListener("click", gameStart);
 
 function gameStart() {
   circleTurn = false;
   cellElements.forEach((cell) => {
+    cell.classList.remove(xClass);
+    cell.classList.remove(circleClass);
+    cell.removeEventListener("click", handleClick);
     cell.addEventListener("click", handleClick, { once: true });
   });
   boardHoverClass();
+  winMessageElement.classList.remove("show");
 }
 
 function handleClick(event) {
@@ -37,12 +43,31 @@ function handleClick(event) {
   placeMark(cell, currentClass);
   //Check For Win
   if (checkWin(currentClass)) {
-    console.log("Winner");
+    /*console.log("Winner"); */
+    endGame(false);
+  } else if (isDraw()) {
+    endGame(true);
+  } else {
+    switchTurn();
+    boardHoverClass();
   }
-  //Switch Turn
-  switchTurn();
-  //to activave hover effect
-  boardHoverClass();
+}
+
+function endGame(draw) {
+  if (draw) {
+    winMessageTextElement.innerText = "Draw!";
+  } else {
+    winMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
+  }
+  winMessageElement.classList.add("show");
+}
+
+function isDraw() {
+  return [...cellElements].every((cell) => {
+    return (
+      cell.classList.contains(xClass) || cell.classList.contains(circleClass)
+    );
+  });
 }
 
 function placeMark(cell, currentClass) {
@@ -54,12 +79,12 @@ function switchTurn() {
 }
 
 function boardHoverClass() {
-  board.classList.remove(xClass);
-  board.classList.remove(circleClass);
+  gameBoard.classList.remove(xClass);
+  gameBoard.classList.remove(circleClass);
   if (circleTurn) {
-    board.classList.add(circleClass);
+    gameBoard.classList.add(circleClass);
   } else {
-    board.classList.add(xClass);
+    gameBoard.classList.add(xClass);
   }
 }
 
