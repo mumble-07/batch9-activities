@@ -35,16 +35,11 @@ function gameStart() {
 }
 
 function handleClick(event) {
-  /* console.log("Clicked"); */
-  /* testing sa console, once lang ma click yung boxes */
   const cell = event.target;
   const currentClass = circleTurn ? circleClass : xClass;
-  //placeMark
-  placeMark(cell, currentClass);
-  //Check For Win
-  if (checkWin(currentClass)) {
-    /*console.log("Winner"); */
-    endGame(false);
+  placeMark(cell, currentClass);   //placeMark
+  if (checkWin(currentClass)) {   //Check For Win
+       endGame(false);  
   } else if (isDraw()) {
     endGame(true);
   } else {
@@ -63,15 +58,14 @@ function endGame(draw) {
 }
 
 function isDraw() {
-  return [...cellElements].every((cell) => {
-    return (
-      cell.classList.contains(xClass) || cell.classList.contains(circleClass)
-    );
+  return [...cellElements].every(cell => {
+    return cell.classList.contains(xClass) || 
+    cell.classList.contains(circleClass)
   });
 }
 
 function placeMark(cell, currentClass) {
-  cell.classList.add(currentClass);
+  cell.classList.add(currentClass)
 }
 
 function switchTurn() {
@@ -89,8 +83,8 @@ function boardHoverClass() {
 }
 
 function checkWin(currentClass) {
-  winningCombinations.some((combinaion) => {
-    return combinaion.every((index) => {
+  return winningCombinations.some(combinaion => {
+    return combinaion.every(index => {
       return cellElements[index].classList.contains(currentClass);
     });
   });
