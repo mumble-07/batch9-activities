@@ -1,5 +1,20 @@
+const gameBoard = document.getElementById("board");
+const cellElements = document.querySelectorAll("[data-cell]");
+const winMessageElement = document.getElementById("winMessage");
+const winMessageTextElement = document.querySelector("[data-win-message-text]");
+const histoPage = document.getElementById("histoPage");
+const histoMessageElement = document.querySelector("[data-histo-text]")
+const prevButton = document.getElementById("previous");
+const nextButton = document.getElementById ("next");
+const restartButton = document.getElementById("restartButton");
+const histoButton = document.getElementById("historyButton");
+
+let circleTurn;
 const xClass = "x";
 const circleClass = "circle";
+let gameHist = [];
+let histCounter = 0;
+
 const winningCombinations = [
   [0, 1, 2],
   [3, 4, 5],
@@ -11,19 +26,19 @@ const winningCombinations = [
   [2, 4, 6],
 ];
 
-const cellElements = document.querySelectorAll("[data-cell]");
-const gameBoard = document.getElementById("board");
-const winMessageElement = document.getElementById("winMessage");
-const restartButton = document.getElementById("restartButton");
-const winMessageTextElement = document.querySelector("[data-win-message-text]");
-let circleTurn;
+histoButton.addEventListener('click', showHisto)
+prevButton.addEventListener('click', prevHisto)
+nextButton.addEventListener('click', nextHisto)
 
 gameStart();
 
-restartButton.addEventListener("click", gameStart);
+/* restartButton.addEventListener("click", gameStart); */
+restartButton.addEventListener('click', () => {
+  window.location.reload();
+});
 
 function gameStart() {
-  circleTurn = false;
+  circleTurn = false; //FIRST MOVE YUNG X
   cellElements.forEach((cell) => {
     cell.classList.remove(xClass);
     cell.classList.remove(circleClass);
@@ -38,6 +53,7 @@ function handleClick(event) {
   const cell = event.target;
   const currentClass = circleTurn ? circleClass : xClass;
   placeMark(cell, currentClass);   //placeMark
+  saveMove();
   if (checkWin(currentClass)) {   //Check For Win
        endGame(false);  
   } else if (isDraw()) {
@@ -52,7 +68,7 @@ function endGame(draw) {
   if (draw) {
     winMessageTextElement.innerText = "Draw!";
   } else {
-    winMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
+    winMessageTextElement.innerText = `${circleTurn ? "O" : "X"} Wins!`;
   }
   winMessageElement.classList.add("show");
 }
@@ -88,4 +104,46 @@ function checkWin(currentClass) {
       return cellElements[index].classList.contains(currentClass);
     });
   });
+}
+
+function saveMove() {
+  gameHist.push(gameBoard.innerHTML)
+}
+
+function showHisto() {
+  winMessageElement.classList.remove('show');
+  nextButton.disabled = true;
+  histCounter = gameHist.length - 1;
+  nextButton.disabled = true;
+  histoText();
+  gameStart();
+}
+
+function histoText() {
+  if (draw){
+  histoMessageElement.innerText = 'Match Draw: History'
+} else {
+  histoMessageElement.innerText = `Player ${circleTurn ? "O": "X"} Won: History`
+}
+histoMessageElement.classList.add('show');
+}
+
+function prevHisto() {
+  nextButton.disabled = false;
+  if (histCounter > 0) {
+    gameBoard.innerHTML = gameHist [--histCounter]
+  }
+  if (histCounter === 0) {
+    prevButton.disabled = true
+  }
+}
+
+function nextHisto() {
+  prevButton.disabled = false;
+  if (histCounter < gameHist.length -1) {
+    gameBoard.innerHTML = gameHist [++histCounter]
+  }
+  if (histCounter === gameHist.length -1) {
+    nextButton.disabled = true;
+  }
 }

@@ -1,5 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=ZCOOL+KuaiLe&display=swap");
+
 $color: #fad4c0;
-$hover: #7c98b3;
+$hover: #2e4052;
+$textColor: #d00000;
+$font: "Bungee", cursive;
+
+$mobileS: 320px;
+$mobileM: 375px;
+$mobileL: 430px;
+$tablet: 770px;
+$laptop: 1024px;
 
 *,
 *::after,
@@ -13,20 +23,63 @@ $hover: #7c98b3;
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   background-color: $color;
   overflow: hidden;
 }
 
-.board {
+#Container {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 10% 15% 15% 10% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+
+#title {
+  margin: 0 auto;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  font: 500% $font;
+  color: $textColor;
+}
+
+#turn {
+  margin: 0 auto;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  font: 200% $font;
+  line-height: 50%;
+  color: $textColor;
+}
+
+/* <!--GAME BOARD--> */
+
+.board {
+  width: 50vw;
+  height: 50vh;
   display: grid;
   justify-content: center;
   align-content: center;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(3, auto);
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 6;
 }
 
 /* tic tac toe board */
@@ -144,35 +197,311 @@ body {
   background-color: $color;
 }
 
+/* <!--END GAME MESSAGE--> */
+
 .win-message {
+  width: 70%;
+  height: 90%;
+  margin: 0 auto;
+  margin-top: 2%;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 6;
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  position: relative;
+  background-color: $hover;
+  opacity: 0.95;
   justify-content: center;
   align-items: center;
   color: $color;
-  font-size: 5rem;
-  flex-direction: column;
-}
-
-.win-message button {
-  font-size: 3rem;
-  background-color: $color;
-  border: 1px solid black;
-  padding: 0.25em 0.5em;
-  cursor: pointer;
-}
-
-.win-message button:hover {
-  background-color: $hover;
-  color: $color;
-  border-color: black;
+  font: 500% $font;
+  border-radius: 20px;
 }
 
 .win-message.show {
   display: flex;
+}
+
+/* <!--BUTTONS--> */
+
+#gameEnd {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  button {
+    width: 70%;
+    height: 10%;
+    border-radius: 5px;
+    font: 90% $font;
+    color: $color;
+    background-color: $hover;
+    border: 1px solid $hover;
+    cursor: pointer;
+  }
+}
+
+#gameEnd button:hover {
+  background-color: $textColor;
+  color: white;
+  border-color: $color;
+}
+
+/* MEDIA QUERY */
+
+/* TABLET AND LAPTOP */
+
+@media only screen and (max-width: $tablet), (max-width: $laptop) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: $color;
+    overflow: hidden;
+  }
+
+  #Container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 25% 25% 25% 25%;
+  }
+
+  #title {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font: 400% $font;
+    line-height: 100%;
+    color: $textColor;
+  }
+
+  #turn {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    font: 150% $font;
+    line-height: 10%;
+    color: $textColor;
+  }
+
+  /* <!--GAME BOARD--> */
+
+  .board {
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 9;
+  }
+
+  /* <!--END GAME MESSAGE--> */
+
+  .win-message {
+    width: 70vw;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 0%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    display: none;
+    position: relative;
+    background-color: $hover;
+    opacity: 0.95;
+    justify-content: center;
+    align-items: center;
+    color: $color;
+    font: 500% $font;
+    border-radius: 20px;
+  }
+
+  .win-message.show {
+    display: flex;
+  }
+
+  /* <!--BUTTONS--> */
+
+  #gameEnd {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    button {
+      width: 70%;
+      height: 25%;
+      border-radius: 5px;
+      font: 160% $font;
+      color: $color;
+      background-color: $hover;
+      border: 1px solid $hover;
+      cursor: pointer;
+    }
+  }
+
+  #gameEnd button:hover {
+    background-color: $textColor;
+    color: white;
+    border-color: $color;
+  }
+}
+
+/*  S M L MOBILE */
+
+@media only screen and (max-width: $mobileS),
+  (max-width: $mobileM),
+  (max-width: $mobileL) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: $color;
+    overflow: hidden;
+  }
+
+  #Container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 25% 25% 25% 25%;
+  }
+
+  #title {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font: 300% $font;
+    line-height: 80%;
+    color: $textColor;
+  }
+
+  #turn {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    font: 150% $font;
+    line-height: 10%;
+    color: $textColor;
+  }
+
+  /* <!--GAME BOARD--> */
+
+  .board {
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 9;
+  }
+
+  /* <!--END GAME MESSAGE--> */
+
+  .win-message {
+    width: 95vw;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 0%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    display: none;
+    position: relative;
+    background-color: $hover;
+    opacity: 0.95;
+    justify-content: center;
+    align-items: center;
+    color: $color;
+    font: 300% $font;
+    border-radius: 20px;
+  }
+
+  .win-message.show {
+    display: flex;
+  }
+
+  /* <!--BUTTONS--> */
+
+  #gameEnd {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    button {
+      width: 80%;
+      height: 25%;
+      border-radius: 5px;
+      font: 100% $font;
+      color: $color;
+      background-color: $hover;
+      border: 1px solid $hover;
+      cursor: pointer;
+    }
+  }
+
+  #gameEnd button:hover {
+    background-color: $textColor;
+    color: white;
+    border-color: $color;
+  }
 }

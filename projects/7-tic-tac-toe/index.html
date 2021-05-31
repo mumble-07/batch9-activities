@@ -9,22 +9,39 @@
     <script src="js/script.js" defer></script>
   </head>
   <body>
-    <div class="board" id="board">
-      <!--board x and board circle for checking try lang-->
-      <div class="cell" data-cell></div>
-      <!--cell x and cell circle try for checking-->
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-    </div>
-    <div class="win-message" id="winMessage">
-      <div data-win-message-text>X wins!</div>
-      <button id="restartButton">Restart</button>
+    <div id="Container">
+      <!--HEADER-->
+      <div id="title">TIC TAC TOE</div>
+      <div id="turn">X's Turn</div>
+      <!--GAME BOARD-->
+      <div class="board" id="board">
+        <!--board x and board circle for checking try lang-->
+        <div class="cell" data-cell></div>
+        <!--cell x and cell circle try for checking-->
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+      <!--HISTORY PAGE-->
+      <div id="histoPage">
+        <div data-histo-text class="histoMessage"></div>
+        <button id="previous">Previous</button>
+        <button id="next">Next</button>
+      </div>
+      <!--END GAME MESSAGE-->
+      <div class="win-message" id="winMessage">
+        <div data-win-message-text></div>
+      </div>
+      <!--BUTTONS-->
+      <div id="gameEnd">
+        <button id="historyButton">History</button>
+        <button id="restartButton">Restart</button>
+      </div>
     </div>
   </body>
 </html>

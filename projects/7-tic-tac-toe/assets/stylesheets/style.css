@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=ZCOOL+KuaiLe&display=swap");
 *,
 *::after,
 *::before {
@@ -10,20 +11,62 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   background-color: #fad4c0;
   overflow: hidden;
 }
 
-.board {
+#Container {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 10% 15% 15% 10% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+
+#title {
+  margin: 0 auto;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  font: 500% "Bungee", cursive;
+  color: #d00000;
+}
+
+#turn {
+  margin: 0 auto;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  font: 200% "Bungee", cursive;
+  line-height: 50%;
+  color: #d00000;
+}
+
+/* <!--GAME BOARD--> */
+.board {
+  width: 50vw;
+  height: 50vh;
   display: grid;
   justify-content: center;
   align-content: center;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(3, auto);
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 6;
 }
 
 /* tic tac toe board */
@@ -82,7 +125,7 @@ body {
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  background-color: #7c98b3;
+  background-color: #2e4052;
   opacity: 0.8;
 }
 
@@ -132,37 +175,299 @@ body {
   background-color: #fad4c0;
 }
 
+/* <!--END GAME MESSAGE--> */
 .win-message {
+  width: 70%;
+  height: 90%;
+  margin: 0 auto;
+  margin-top: 2%;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 6;
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  position: relative;
+  background-color: #2e4052;
+  opacity: 0.95;
   justify-content: center;
   align-items: center;
   color: #fad4c0;
-  font-size: 5rem;
-  flex-direction: column;
-}
-
-.win-message button {
-  font-size: 3rem;
-  background-color: #fad4c0;
-  border: 1px solid black;
-  padding: 0.25em 0.5em;
-  cursor: pointer;
-}
-
-.win-message button:hover {
-  background-color: #7c98b3;
-  color: #fad4c0;
-  border-color: black;
+  font: 500% "Bungee", cursive;
+  border-radius: 20px;
 }
 
 .win-message.show {
   display: flex;
+}
+
+/* <!--BUTTONS--> */
+#gameEnd {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+}
+#gameEnd button {
+  width: 70%;
+  height: 10%;
+  border-radius: 5px;
+  font: 90% "Bungee", cursive;
+  color: #fad4c0;
+  background-color: #2e4052;
+  border: 1px solid #2e4052;
+  cursor: pointer;
+}
+
+#gameEnd button:hover {
+  background-color: #d00000;
+  color: white;
+  border-color: #fad4c0;
+}
+
+/* MEDIA QUERY */
+/* TABLET AND LAPTOP */
+@media only screen and (max-width: 770px), (max-width: 1024px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: #fad4c0;
+    overflow: hidden;
+  }
+
+  #Container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 25% 25% 25% 25%;
+  }
+
+  #title {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font: 400% "Bungee", cursive;
+    line-height: 100%;
+    color: #d00000;
+  }
+
+  #turn {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    font: 150% "Bungee", cursive;
+    line-height: 10%;
+    color: #d00000;
+  }
+
+  /* <!--GAME BOARD--> */
+  .board {
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 9;
+  }
+
+  /* <!--END GAME MESSAGE--> */
+  .win-message {
+    width: 70vw;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 0%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    display: none;
+    position: relative;
+    background-color: #2e4052;
+    opacity: 0.95;
+    justify-content: center;
+    align-items: center;
+    color: #fad4c0;
+    font: 500% "Bungee", cursive;
+    border-radius: 20px;
+  }
+
+  .win-message.show {
+    display: flex;
+  }
+
+  /* <!--BUTTONS--> */
+  #gameEnd {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+  }
+  #gameEnd button {
+    width: 70%;
+    height: 25%;
+    border-radius: 5px;
+    font: 160% "Bungee", cursive;
+    color: #fad4c0;
+    background-color: #2e4052;
+    border: 1px solid #2e4052;
+    cursor: pointer;
+  }
+
+  #gameEnd button:hover {
+    background-color: #d00000;
+    color: white;
+    border-color: #fad4c0;
+  }
+}
+/*  S M L MOBILE */
+@media only screen and (max-width: 320px), (max-width: 375px), (max-width: 430px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: #fad4c0;
+    overflow: hidden;
+  }
+
+  #Container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 25% 25% 25% 25%;
+  }
+
+  #title {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font: 300% "Bungee", cursive;
+    line-height: 80%;
+    color: #d00000;
+  }
+
+  #turn {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    font: 150% "Bungee", cursive;
+    line-height: 10%;
+    color: #d00000;
+  }
+
+  /* <!--GAME BOARD--> */
+  .board {
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 9;
+  }
+
+  /* <!--END GAME MESSAGE--> */
+  .win-message {
+    width: 95vw;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 0%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    display: none;
+    position: relative;
+    background-color: #2e4052;
+    opacity: 0.95;
+    justify-content: center;
+    align-items: center;
+    color: #fad4c0;
+    font: 300% "Bungee", cursive;
+    border-radius: 20px;
+  }
+
+  .win-message.show {
+    display: flex;
+  }
+
+  /* <!--BUTTONS--> */
+  #gameEnd {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+  }
+  #gameEnd button {
+    width: 80%;
+    height: 25%;
+    border-radius: 5px;
+    font: 100% "Bungee", cursive;
+    color: #fad4c0;
+    background-color: #2e4052;
+    border: 1px solid #2e4052;
+    cursor: pointer;
+  }
+
+  #gameEnd button:hover {
+    background-color: #d00000;
+    color: white;
+    border-color: #fad4c0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
