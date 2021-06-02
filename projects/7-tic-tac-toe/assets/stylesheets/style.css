@@ -202,20 +202,40 @@ body {
 
 /* <!--BUTTONS--> */
 #gameEnd {
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 5;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: flex-start;
+  text-align: center;
   align-items: flex-start;
   text-align: center;
+  justify-content: space-around;
 }
 #gameEnd button {
+  width: 40%;
+  height: 20%;
+  border-radius: 5px;
+  font: 90% "Bungee", cursive;
+  color: #fad4c0;
+  background-color: #2e4052;
+  border: 1px solid #2e4052;
+  cursor: pointer;
+}
+
+#histoPage.show {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+#histoPage.show button {
   width: 70%;
-  height: 10%;
+  height: 20%;
   border-radius: 5px;
   font: 90% "Bungee", cursive;
   color: #fad4c0;
@@ -225,6 +245,12 @@ body {
 }
 
 #gameEnd button:hover {
+  background-color: #d00000;
+  color: white;
+  border-color: #fad4c0;
+}
+
+#histoPage button:hover {
   background-color: #d00000;
   color: white;
   border-color: #fad4c0;
@@ -344,6 +370,28 @@ body {
     cursor: pointer;
   }
 
+  #histoPage.show {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+  #histoPage.show button {
+    width: 40%;
+    height: 20%;
+    border-radius: 5px;
+    font: 160% "Bungee", cursive;
+    color: #fad4c0;
+    background-color: #2e4052;
+    border: 1px solid #2e4052;
+    cursor: pointer;
+  }
+
   #gameEnd button:hover {
     background-color: #d00000;
     color: white;
@@ -386,12 +434,12 @@ body {
     margin: 0 auto;
     grid-row-start: 1;
     grid-row-end: 2;
-    grid-column-start: 4;
-    grid-column-end: 8;
+    grid-column-start: 1;
+    grid-column-end: 11;
     text-align: center;
     display: flex;
     align-items: flex-end;
-    font: 150% "Bungee", cursive;
+    font: 130% "Bungee", cursive;
     line-height: 10%;
     color: #d00000;
   }
@@ -463,10 +511,26 @@ body {
     cursor: pointer;
   }
 
-  #gameEnd button:hover {
-    background-color: #d00000;
-    color: white;
-    border-color: #fad4c0;
+  #histoPage.show {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+  #histoPage.show button {
+    width: 45%;
+    height: 20%;
+    border-radius: 5px;
+    font: 100% "Bungee", cursive;
+    color: #fad4c0;
+    background-color: #2e4052;
+    border: 1px solid #2e4052;
+    cursor: pointer;
   }
 }
 

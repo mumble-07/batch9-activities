@@ -226,19 +226,39 @@ body {
 /* <!--BUTTONS--> */
 
 #gameEnd {
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 5;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: flex-start;
+  text-align: center;
   align-items: flex-start;
   text-align: center;
+  justify-content: space-around;
+  button {
+    width: 40%;
+    height: 20%;
+    border-radius: 5px;
+    font: 90% $font;
+    color: $color;
+    background-color: $hover;
+    border: 1px solid $hover;
+    cursor: pointer;
+  }
+}
+
+#histoPage.show {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
   button {
     width: 70%;
-    height: 10%;
+    height: 20%;
     border-radius: 5px;
     font: 90% $font;
     color: $color;
@@ -254,6 +274,11 @@ body {
   border-color: $color;
 }
 
+#histoPage button:hover {
+  background-color: $textColor;
+  color: white;
+  border-color: $color;
+}
 /* MEDIA QUERY */
 
 /* TABLET AND LAPTOP */
@@ -373,6 +398,28 @@ body {
     }
   }
 
+  #histoPage.show {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    text-align: center;
+    button {
+      width: 40%;
+      height: 20%;
+      border-radius: 5px;
+      font: 160% $font;
+      color: $color;
+      background-color: $hover;
+      border: 1px solid $hover;
+      cursor: pointer;
+    }
+  }
+
   #gameEnd button:hover {
     background-color: $textColor;
     color: white;
@@ -419,12 +466,12 @@ body {
     margin: 0 auto;
     grid-row-start: 1;
     grid-row-end: 2;
-    grid-column-start: 4;
-    grid-column-end: 8;
+    grid-column-start: 1;
+    grid-column-end: 11;
     text-align: center;
     display: flex;
     align-items: flex-end;
-    font: 150% $font;
+    font: 130% $font;
     line-height: 10%;
     color: $textColor;
   }
@@ -499,9 +546,25 @@ body {
     }
   }
 
-  #gameEnd button:hover {
-    background-color: $textColor;
-    color: white;
-    border-color: $color;
+  #histoPage.show {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    text-align: center;
+    button {
+      width: 45%;
+      height: 20%;
+      border-radius: 5px;
+      font: 100% $font;
+      color: $color;
+      background-color: $hover;
+      border: 1px solid $hover;
+      cursor: pointer;
+    }
   }
 }

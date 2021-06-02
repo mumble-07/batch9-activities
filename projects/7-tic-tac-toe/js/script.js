@@ -8,6 +8,7 @@ const prevButton = document.getElementById("previous");
 const nextButton = document.getElementById ("next");
 const restartButton = document.getElementById("restartButton");
 const histoButton = document.getElementById("historyButton");
+const playerTurn = document.getElementById("turn");
 
 let circleTurn;
 const xClass = "x";
@@ -42,11 +43,16 @@ function gameStart() {
   cellElements.forEach((cell) => {
     cell.classList.remove(xClass);
     cell.classList.remove(circleClass);
+    nextButton.style.visibility = 'hidden';
+    prevButton.style.visibility = 'hidden';
     cell.removeEventListener("click", handleClick);
     cell.addEventListener("click", handleClick, { once: true });
+    playerTurn.innerHTML = `${circleTurn ? "Player O's Turn!" : "Player X's Turn!"}`;
+    histoButton.disabled = true;
   });
   boardHoverClass();
   winMessageElement.classList.remove("show");
+  histoPage.classList.remove("show");
 }
 
 function handleClick(event) {
@@ -54,6 +60,7 @@ function handleClick(event) {
   const currentClass = circleTurn ? circleClass : xClass;
   placeMark(cell, currentClass);   //placeMark
   saveMove();
+
   if (checkWin(currentClass)) {   //Check For Win
        endGame(false);  
   } else if (isDraw()) {
@@ -71,6 +78,7 @@ function endGame(draw) {
     winMessageTextElement.innerText = `${circleTurn ? "O" : "X"} Wins!`;
   }
   winMessageElement.classList.add("show");
+  histoButton.disabled = false;
 }
 
 function isDraw() {
@@ -86,6 +94,7 @@ function placeMark(cell, currentClass) {
 
 function switchTurn() {
   circleTurn = !circleTurn;
+  playerTurn.innerHTML = `${circleTurn ? "Player O's Turn!" : "Player X's Turn!"}`;
 }
 
 function boardHoverClass() {
@@ -99,11 +108,22 @@ function boardHoverClass() {
 }
 
 function checkWin(currentClass) {
-  return winningCombinations.some(combinaion => {
+  const isWin = winningCombinations.some(combinaion => {
     return combinaion.every(index => {
       return cellElements[index].classList.contains(currentClass);
     });
   });
+
+  if (isWin) {
+    cellElements.forEach((element) => 
+    element.removeEventListener('click',handleClick)
+    );
+    gameBoard.classList.remove (xClass);
+    gameBoard.classList.remove(circleClass);
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function saveMove() {
@@ -112,21 +132,27 @@ function saveMove() {
 
 function showHisto() {
   winMessageElement.classList.remove('show');
+  histoPage.classList.add("show");  
   nextButton.disabled = true;
   histCounter = gameHist.length - 1;
   nextButton.disabled = true;
+  nextButton.style.visibility = 'visible';
+  prevButton.style.visibility = 'visible';
+  histoButton.style.visibility = 'hidden';
+  playerTurn.innerHTML = 'GAME HISTORY';
+  
   histoText();
   gameStart();
 }
 
-function histoText() {
+/* function histoText() {
   if (draw){
   histoMessageElement.innerText = 'Match Draw: History'
 } else {
   histoMessageElement.innerText = `Player ${circleTurn ? "O": "X"} Won: History`
 }
 histoMessageElement.classList.add('show');
-}
+} */
 
 function prevHisto() {
   nextButton.disabled = false;
