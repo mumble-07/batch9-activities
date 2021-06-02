@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Bungee&family=ZCOOL+KuaiLe&display=swap");
 
-$color: #fad4c0;
-$hover: #2e4052;
-$textColor: #d00000;
+$color: #cdedfd;
+$hover: #0f110c;
+$textColor: #de6449;
+$xClass: #942911;
+$cClass: #2a2b2e;
 $font: "Bungee", cursive;
 
 $mobileS: 320px;
@@ -20,13 +22,28 @@ $laptop: 1024px;
 :root {
   --cell-size: 100px;
   --mark-size: calc(var(--cell-size) * 0.9);
+  --primary-background: #cdedfd;
+  --primary-hover: #0f110c;
+  --primary-textColor: #de6449;
+  --primary-xClass: #942911;
+  --primary-cClass: #2a2b2e;
+  --primary-after-hover: white;
+}
+
+.darkTheme {
+  --primary-background: #0f110c;
+  --primary-hover: #f7c1a8;
+  --primary-textColor: #2ee8e5;
+  --primary-xClass: #ffba08;
+  --primary-cClass: white;
+  --primary-after-hover: #b33609;
 }
 
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: $color;
+  background-color: var(--primary-background);
   overflow: hidden;
 }
 
@@ -48,7 +65,7 @@ body {
   display: flex;
   align-items: flex-end;
   font: 500% $font;
-  color: $textColor;
+  color: var(--primary-textColor);
 }
 
 #turn {
@@ -62,7 +79,25 @@ body {
   align-items: flex-end;
   font: 200% $font;
   line-height: 50%;
-  color: $textColor;
+  color: var(--primary-textColor);
+}
+
+#mode {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 auto;
+  margin-top: 10%;
+  cursor: pointer;
+}
+
+#moonIcon {
+  width: 20%;
 }
 
 /* <!--GAME BOARD--> */
@@ -87,7 +122,7 @@ body {
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  border: 1px solid black;
+  border: 1px solid var(--primary-hover);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,10 +166,13 @@ body {
 /* X and Circle mark */
 
 .cell.x::before,
-.cell.x::after,
+.cell.x::after {
+  background-color: var(--primary-xClass);
+}
+
 .cell.circle::before,
 .cell.circle::after {
-  background-color: black;
+  background-color: var(--primary-cClass);
 }
 
 /* for hover  */
@@ -143,7 +181,7 @@ body {
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  background-color: $hover;
+  background-color: var(--primary-hover);
   opacity: 0.8;
 }
 
@@ -194,7 +232,7 @@ body {
 .board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
-  background-color: $color;
+  background-color: var(--primary-background);
 }
 
 /* <!--END GAME MESSAGE--> */
@@ -210,11 +248,11 @@ body {
   grid-column-end: 6;
   display: none;
   position: relative;
-  background-color: $hover;
+  background-color: var(--primary-hover);
   opacity: 0.95;
   justify-content: center;
   align-items: center;
-  color: $color;
+  color: var(--primary-background);
   font: 500% $font;
   border-radius: 20px;
 }
@@ -240,9 +278,9 @@ body {
     height: 20%;
     border-radius: 5px;
     font: 90% $font;
-    color: $color;
-    background-color: $hover;
-    border: 1px solid $hover;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
     cursor: pointer;
   }
 }
@@ -257,27 +295,27 @@ body {
   align-items: flex-start;
   justify-content: space-evenly;
   button {
-    width: 70%;
+    width: 45%;
     height: 20%;
     border-radius: 5px;
     font: 90% $font;
-    color: $color;
-    background-color: $hover;
-    border: 1px solid $hover;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
     cursor: pointer;
   }
 }
 
 #gameEnd button:hover {
-  background-color: $textColor;
-  color: white;
-  border-color: $color;
+  background-color: var(--primary-textColor);
+  color: var(--primary-after-hover);
+  border-color: var(--primary-background);
 }
 
 #histoPage button:hover {
-  background-color: $textColor;
-  color: white;
-  border-color: $color;
+  background-color: var(--primary-textColor);
+  color: var(--primary-after-hover);
+  border-color: var(--primary-background);
 }
 /* MEDIA QUERY */
 
@@ -288,7 +326,7 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background-color: $color;
+    background-color: var(--primary-background);
     overflow: hidden;
   }
 
@@ -311,7 +349,7 @@ body {
     align-items: center;
     font: 400% $font;
     line-height: 100%;
-    color: $textColor;
+    color: var(--primary-textColor);
   }
 
   #turn {
@@ -325,7 +363,26 @@ body {
     align-items: flex-end;
     font: 150% $font;
     line-height: 10%;
-    color: $textColor;
+    color: var(--primary-textColor);
+  }
+
+  #mode {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 9;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 50%;
+    margin-right: -20%;
+
+    cursor: pointer;
+  }
+
+  #moonIcon {
+    width: 50%;
   }
 
   /* <!--GAME BOARD--> */
@@ -359,11 +416,11 @@ body {
     grid-column-end: 11;
     display: none;
     position: relative;
-    background-color: $hover;
+    background-color: var(--primary-hover);
     opacity: 0.95;
     justify-content: center;
     align-items: center;
-    color: $color;
+    color: var(--primary-background);
     font: 500% $font;
     border-radius: 20px;
   }
@@ -391,9 +448,9 @@ body {
       height: 25%;
       border-radius: 5px;
       font: 160% $font;
-      color: $color;
-      background-color: $hover;
-      border: 1px solid $hover;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
       cursor: pointer;
     }
   }
@@ -410,20 +467,20 @@ body {
     text-align: center;
     button {
       width: 40%;
-      height: 20%;
+      height: 25%;
       border-radius: 5px;
       font: 160% $font;
-      color: $color;
-      background-color: $hover;
-      border: 1px solid $hover;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
       cursor: pointer;
     }
   }
 
   #gameEnd button:hover {
-    background-color: $textColor;
-    color: white;
-    border-color: $color;
+    background-color: var(--primary-textColor);
+    color: var(--primary-after-hover);
+    border-color: var(--primary-background);
   }
 }
 
@@ -436,7 +493,7 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background-color: $color;
+    background-color: var(--primary-background);
     overflow: hidden;
   }
 
@@ -459,7 +516,7 @@ body {
     align-items: center;
     font: 300% $font;
     line-height: 80%;
-    color: $textColor;
+    color: var(--primary-textColor);
   }
 
   #turn {
@@ -473,7 +530,25 @@ body {
     align-items: flex-end;
     font: 130% $font;
     line-height: 10%;
-    color: $textColor;
+    color: var(--primary-textColor);
+  }
+
+  #mode {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 10;
+    grid-column-end: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100%;
+    margin-right: 20%;
+    cursor: pointer;
+  }
+
+  #moonIcon {
+    width: 100%;
   }
 
   /* <!--GAME BOARD--> */
@@ -507,11 +582,11 @@ body {
     grid-column-end: 11;
     display: none;
     position: relative;
-    background-color: $hover;
+    background-color: var(--primary-hover);
     opacity: 0.95;
     justify-content: center;
     align-items: center;
-    color: $color;
+    color: var(--primary-background);
     font: 300% $font;
     border-radius: 20px;
   }
@@ -539,9 +614,9 @@ body {
       height: 25%;
       border-radius: 5px;
       font: 100% $font;
-      color: $color;
-      background-color: $hover;
-      border: 1px solid $hover;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
       cursor: pointer;
     }
   }
@@ -561,9 +636,9 @@ body {
       height: 20%;
       border-radius: 5px;
       font: 100% $font;
-      color: $color;
-      background-color: $hover;
-      border: 1px solid $hover;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
       cursor: pointer;
     }
   }

@@ -3,9 +3,9 @@ const cellElements = document.querySelectorAll("[data-cell]");
 const winMessageElement = document.getElementById("winMessage");
 const winMessageTextElement = document.querySelector("[data-win-message-text]");
 const histoPage = document.getElementById("histoPage");
-const histoMessageElement = document.querySelector("[data-histo-text]")
+const histoMessageElement = document.querySelector("[data-histo-text]");
 const prevButton = document.getElementById("previous");
-const nextButton = document.getElementById ("next");
+const nextButton = document.getElementById("next");
 const restartButton = document.getElementById("restartButton");
 const histoButton = document.getElementById("historyButton");
 const playerTurn = document.getElementById("turn");
@@ -27,14 +27,14 @@ const winningCombinations = [
   [2, 4, 6],
 ];
 
-histoButton.addEventListener('click', showHisto)
-prevButton.addEventListener('click', prevHisto)
-nextButton.addEventListener('click', nextHisto)
+histoButton.addEventListener("click", showHisto);
+prevButton.addEventListener("click", prevHisto);
+nextButton.addEventListener("click", nextHisto);
 
 gameStart();
 
 /* restartButton.addEventListener("click", gameStart); */
-restartButton.addEventListener('click', () => {
+restartButton.addEventListener("click", () => {
   window.location.reload();
 });
 
@@ -43,13 +43,16 @@ function gameStart() {
   cellElements.forEach((cell) => {
     cell.classList.remove(xClass);
     cell.classList.remove(circleClass);
-    nextButton.style.visibility = 'hidden';
-    prevButton.style.visibility = 'hidden';
+    nextButton.style.visibility = "hidden";
+    prevButton.style.visibility = "hidden";
     cell.removeEventListener("click", handleClick);
     cell.addEventListener("click", handleClick, { once: true });
-    playerTurn.innerHTML = `${circleTurn ? "Player O's Turn!" : "Player X's Turn!"}`;
+    playerTurn.innerHTML = `${
+      circleTurn ? "Player O's Turn!" : "Player X's Turn!"
+    }`;
     histoButton.disabled = true;
   });
+
   boardHoverClass();
   winMessageElement.classList.remove("show");
   histoPage.classList.remove("show");
@@ -58,11 +61,12 @@ function gameStart() {
 function handleClick(event) {
   const cell = event.target;
   const currentClass = circleTurn ? circleClass : xClass;
-  placeMark(cell, currentClass);   //placeMark
+  placeMark(cell, currentClass); //placeMark
   saveMove();
 
-  if (checkWin(currentClass)) {   //Check For Win
-       endGame(false);  
+  if (checkWin(currentClass)) {
+    //Check For Win
+    endGame(false);
   } else if (isDraw()) {
     endGame(true);
   } else {
@@ -82,19 +86,22 @@ function endGame(draw) {
 }
 
 function isDraw() {
-  return [...cellElements].every(cell => {
-    return cell.classList.contains(xClass) || 
-    cell.classList.contains(circleClass)
+  return [...cellElements].every((cell) => {
+    return (
+      cell.classList.contains(xClass) || cell.classList.contains(circleClass)
+    );
   });
 }
 
 function placeMark(cell, currentClass) {
-  cell.classList.add(currentClass)
+  cell.classList.add(currentClass);
 }
 
 function switchTurn() {
   circleTurn = !circleTurn;
-  playerTurn.innerHTML = `${circleTurn ? "Player O's Turn!" : "Player X's Turn!"}`;
+  playerTurn.innerHTML = `${
+    circleTurn ? "Player O's Turn!" : "Player X's Turn!"
+  }`;
 }
 
 function boardHoverClass() {
@@ -108,17 +115,17 @@ function boardHoverClass() {
 }
 
 function checkWin(currentClass) {
-  const isWin = winningCombinations.some(combinaion => {
-    return combinaion.every(index => {
+  const isWin = winningCombinations.some((combinaion) => {
+    return combinaion.every((index) => {
       return cellElements[index].classList.contains(currentClass);
     });
   });
 
   if (isWin) {
-    cellElements.forEach((element) => 
-    element.removeEventListener('click',handleClick)
+    cellElements.forEach((element) =>
+      element.removeEventListener("click", handleClick)
     );
-    gameBoard.classList.remove (xClass);
+    gameBoard.classList.remove(xClass);
     gameBoard.classList.remove(circleClass);
     return true;
   } else {
@@ -126,50 +133,45 @@ function checkWin(currentClass) {
   }
 }
 
+//SAVE MOVE INTO ARRAY
 function saveMove() {
-  gameHist.push(gameBoard.innerHTML)
+  gameHist.push(gameBoard.innerHTML);
 }
 
+//HISTORY BUTTON
 function showHisto() {
-  winMessageElement.classList.remove('show');
-  histoPage.classList.add("show");  
+  winMessageElement.classList.remove("show");
+  histoPage.classList.add("show");
   nextButton.disabled = true;
   histCounter = gameHist.length - 1;
   nextButton.disabled = true;
-  nextButton.style.visibility = 'visible';
-  prevButton.style.visibility = 'visible';
-  histoButton.style.visibility = 'hidden';
-  playerTurn.innerHTML = 'GAME HISTORY';
-  
-  histoText();
-  gameStart();
+  nextButton.style.visibility = "visible";
+  prevButton.style.visibility = "visible";
+  histoButton.style.visibility = "hidden";
+  playerTurn.innerHTML = "GAME HISTORY";
 }
 
-/* function histoText() {
-  if (draw){
-  histoMessageElement.innerText = 'Match Draw: History'
-} else {
-  histoMessageElement.innerText = `Player ${circleTurn ? "O": "X"} Won: History`
-}
-histoMessageElement.classList.add('show');
-} */
-
+//PREVIOUS BUTTON
 function prevHisto() {
   nextButton.disabled = false;
   if (histCounter > 0) {
-    gameBoard.innerHTML = gameHist [--histCounter]
+    gameBoard.innerHTML = gameHist[--histCounter];
   }
   if (histCounter === 0) {
-    prevButton.disabled = true
+    prevButton.disabled = true;
   }
 }
 
+//NEXT BUTTON
 function nextHisto() {
   prevButton.disabled = false;
-  if (histCounter < gameHist.length -1) {
-    gameBoard.innerHTML = gameHist [++histCounter]
+  if (histCounter < gameHist.length - 1) {
+    gameBoard.innerHTML = gameHist[++histCounter];
   }
-  if (histCounter === gameHist.length -1) {
+  if (histCounter === gameHist.length - 1) {
     nextButton.disabled = true;
   }
 }
+
+//sources: https://youtu.be/eGE-tFalwpA
+//https://dev.to/bornasepic/pure-and-simple-tic-tac-toe-with-javascript-4pgn

@@ -8,13 +8,28 @@
 :root {
   --cell-size: 100px;
   --mark-size: calc(var(--cell-size) * 0.9);
+  --primary-background: #cdedfd;
+  --primary-hover: #0f110c;
+  --primary-textColor: #de6449;
+  --primary-xClass: #942911;
+  --primary-cClass: #2a2b2e;
+  --primary-after-hover: white;
+}
+
+.darkTheme {
+  --primary-background: #0f110c;
+  --primary-hover: #f7c1a8;
+  --primary-textColor: #2ee8e5;
+  --primary-xClass: #ffba08;
+  --primary-cClass: white;
+  --primary-after-hover: #b33609;
 }
 
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: #fad4c0;
+  background-color: var(--primary-background);
   overflow: hidden;
 }
 
@@ -36,7 +51,7 @@ body {
   display: flex;
   align-items: flex-end;
   font: 500% "Bungee", cursive;
-  color: #d00000;
+  color: var(--primary-textColor);
 }
 
 #turn {
@@ -50,7 +65,25 @@ body {
   align-items: flex-end;
   font: 200% "Bungee", cursive;
   line-height: 50%;
-  color: #d00000;
+  color: var(--primary-textColor);
+}
+
+#mode {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 auto;
+  margin-top: 10%;
+  cursor: pointer;
+}
+
+#moonIcon {
+  width: 20%;
 }
 
 /* <!--GAME BOARD--> */
@@ -73,7 +106,7 @@ body {
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  border: 1px solid black;
+  border: 1px solid var(--primary-hover);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,10 +147,13 @@ body {
 
 /* X and Circle mark */
 .cell.x::before,
-.cell.x::after,
+.cell.x::after {
+  background-color: var(--primary-xClass);
+}
+
 .cell.circle::before,
 .cell.circle::after {
-  background-color: black;
+  background-color: var(--primary-cClass);
 }
 
 /* for hover  */
@@ -125,7 +161,7 @@ body {
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  background-color: #2e4052;
+  background-color: var(--primary-hover);
   opacity: 0.8;
 }
 
@@ -172,7 +208,7 @@ body {
 .board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
-  background-color: #fad4c0;
+  background-color: var(--primary-background);
 }
 
 /* <!--END GAME MESSAGE--> */
@@ -187,11 +223,11 @@ body {
   grid-column-end: 6;
   display: none;
   position: relative;
-  background-color: #2e4052;
+  background-color: var(--primary-hover);
   opacity: 0.95;
   justify-content: center;
   align-items: center;
-  color: #fad4c0;
+  color: var(--primary-background);
   font: 500% "Bungee", cursive;
   border-radius: 20px;
 }
@@ -217,9 +253,9 @@ body {
   height: 20%;
   border-radius: 5px;
   font: 90% "Bungee", cursive;
-  color: #fad4c0;
-  background-color: #2e4052;
-  border: 1px solid #2e4052;
+  color: var(--primary-background);
+  background-color: var(--primary-hover);
+  border: 1px solid var(--primary-hover);
   cursor: pointer;
 }
 
@@ -234,26 +270,26 @@ body {
   justify-content: space-evenly;
 }
 #histoPage.show button {
-  width: 70%;
+  width: 45%;
   height: 20%;
   border-radius: 5px;
   font: 90% "Bungee", cursive;
-  color: #fad4c0;
-  background-color: #2e4052;
-  border: 1px solid #2e4052;
+  color: var(--primary-background);
+  background-color: var(--primary-hover);
+  border: 1px solid var(--primary-hover);
   cursor: pointer;
 }
 
 #gameEnd button:hover {
-  background-color: #d00000;
-  color: white;
-  border-color: #fad4c0;
+  background-color: var(--primary-textColor);
+  color: var(--primary-after-hover);
+  border-color: var(--primary-background);
 }
 
 #histoPage button:hover {
-  background-color: #d00000;
-  color: white;
-  border-color: #fad4c0;
+  background-color: var(--primary-textColor);
+  color: var(--primary-after-hover);
+  border-color: var(--primary-background);
 }
 
 /* MEDIA QUERY */
@@ -263,7 +299,7 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background-color: #fad4c0;
+    background-color: var(--primary-background);
     overflow: hidden;
   }
 
@@ -286,7 +322,7 @@ body {
     align-items: center;
     font: 400% "Bungee", cursive;
     line-height: 100%;
-    color: #d00000;
+    color: var(--primary-textColor);
   }
 
   #turn {
@@ -300,7 +336,25 @@ body {
     align-items: flex-end;
     font: 150% "Bungee", cursive;
     line-height: 10%;
-    color: #d00000;
+    color: var(--primary-textColor);
+  }
+
+  #mode {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 9;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 50%;
+    margin-right: -20%;
+    cursor: pointer;
+  }
+
+  #moonIcon {
+    width: 50%;
   }
 
   /* <!--GAME BOARD--> */
@@ -332,11 +386,11 @@ body {
     grid-column-end: 11;
     display: none;
     position: relative;
-    background-color: #2e4052;
+    background-color: var(--primary-hover);
     opacity: 0.95;
     justify-content: center;
     align-items: center;
-    color: #fad4c0;
+    color: var(--primary-background);
     font: 500% "Bungee", cursive;
     border-radius: 20px;
   }
@@ -364,9 +418,9 @@ body {
     height: 25%;
     border-radius: 5px;
     font: 160% "Bungee", cursive;
-    color: #fad4c0;
-    background-color: #2e4052;
-    border: 1px solid #2e4052;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
     cursor: pointer;
   }
 
@@ -383,19 +437,19 @@ body {
   }
   #histoPage.show button {
     width: 40%;
-    height: 20%;
+    height: 25%;
     border-radius: 5px;
     font: 160% "Bungee", cursive;
-    color: #fad4c0;
-    background-color: #2e4052;
-    border: 1px solid #2e4052;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
     cursor: pointer;
   }
 
   #gameEnd button:hover {
-    background-color: #d00000;
-    color: white;
-    border-color: #fad4c0;
+    background-color: var(--primary-textColor);
+    color: var(--primary-after-hover);
+    border-color: var(--primary-background);
   }
 }
 /*  S M L MOBILE */
@@ -404,7 +458,7 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background-color: #fad4c0;
+    background-color: var(--primary-background);
     overflow: hidden;
   }
 
@@ -427,7 +481,7 @@ body {
     align-items: center;
     font: 300% "Bungee", cursive;
     line-height: 80%;
-    color: #d00000;
+    color: var(--primary-textColor);
   }
 
   #turn {
@@ -441,7 +495,25 @@ body {
     align-items: flex-end;
     font: 130% "Bungee", cursive;
     line-height: 10%;
-    color: #d00000;
+    color: var(--primary-textColor);
+  }
+
+  #mode {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 10;
+    grid-column-end: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100%;
+    margin-right: 20%;
+    cursor: pointer;
+  }
+
+  #moonIcon {
+    width: 100%;
   }
 
   /* <!--GAME BOARD--> */
@@ -473,11 +545,11 @@ body {
     grid-column-end: 11;
     display: none;
     position: relative;
-    background-color: #2e4052;
+    background-color: var(--primary-hover);
     opacity: 0.95;
     justify-content: center;
     align-items: center;
-    color: #fad4c0;
+    color: var(--primary-background);
     font: 300% "Bungee", cursive;
     border-radius: 20px;
   }
@@ -505,9 +577,9 @@ body {
     height: 25%;
     border-radius: 5px;
     font: 100% "Bungee", cursive;
-    color: #fad4c0;
-    background-color: #2e4052;
-    border: 1px solid #2e4052;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
     cursor: pointer;
   }
 
@@ -527,9 +599,9 @@ body {
     height: 20%;
     border-radius: 5px;
     font: 100% "Bungee", cursive;
-    color: #fad4c0;
-    background-color: #2e4052;
-    border: 1px solid #2e4052;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
     cursor: pointer;
   }
 }
