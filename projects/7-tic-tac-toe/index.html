@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIC TAC TOE</title>
+    <link rel="stylesheet" href="assets/stylesheets/style.css" />
+    <link rel="icon" href="assets/images/icon.png" />
+    <script src="js/script.js" defer></script>
+    <script src="js/mode.js" defer></script>
+  </head>
+  <body>
+    <div id="Container">
+      <!--HEADER-->
+      <div id="title">TIC TAC TOE</div>
+      <div id="turn"></div>
+      <div id="mode"><img src="assets/images/moon.png" id="moonIcon" /></div>
+      <!--GAME BOARD-->
+      <div class="board" id="board">
+        <!--board x and board circle for checking try lang-->
+        <div class="cell" data-cell></div>
+        <!--cell x and cell circle try for checking-->
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+      <!--HISTORY PAGE-->
+      <div class="histoPage" id="histoPage">
+        <div class="histoMessage"></div>
+        <button class="previous" id="previous">Previous</button>
+        <button class="next" id="next">Next</button>
+      </div>
+      <!--END GAME MESSAGE-->
+      <div class="win-message" id="winMessage">
+        <div data-win-message-text></div>
+      </div>
+      <!--BUTTONS-->
+      <div class="gameEnd" id="gameEnd">
+        <button id="historyButton">History</button>
+        <button id="restartButton">Restart</button>
+      </div>
+    </div>
+  </body>
+</html>

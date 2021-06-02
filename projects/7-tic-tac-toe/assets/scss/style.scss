@@ -1,0 +1,645 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=ZCOOL+KuaiLe&display=swap");
+
+$color: #cdedfd;
+$hover: #0f110c;
+$textColor: #de6449;
+$xClass: #942911;
+$cClass: #2a2b2e;
+$font: "Bungee", cursive;
+
+$mobileS: 320px;
+$mobileM: 375px;
+$mobileL: 430px;
+$tablet: 770px;
+$laptop: 1024px;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+  --primary-background: #cdedfd;
+  --primary-hover: #0f110c;
+  --primary-textColor: #de6449;
+  --primary-xClass: #942911;
+  --primary-cClass: #2a2b2e;
+  --primary-after-hover: white;
+}
+
+.darkTheme {
+  --primary-background: #0f110c;
+  --primary-hover: #f7c1a8;
+  --primary-textColor: #2ee8e5;
+  --primary-xClass: #ffba08;
+  --primary-cClass: white;
+  --primary-after-hover: #b33609;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--primary-background);
+  overflow: hidden;
+}
+
+#Container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 10% 15% 15% 10% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+
+#title {
+  margin: 0 auto;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  font: 500% $font;
+  color: var(--primary-textColor);
+}
+
+#turn {
+  margin: 0 auto;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  font: 200% $font;
+  line-height: 50%;
+  color: var(--primary-textColor);
+}
+
+#mode {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 auto;
+  margin-top: 10%;
+  cursor: pointer;
+}
+
+#moonIcon {
+  width: 20%;
+}
+
+/* <!--GAME BOARD--> */
+
+.board {
+  width: 50vw;
+  height: 50vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 6;
+}
+
+/* tic tac toe board */
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid var(--primary-hover);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* to remove outside borders ng cells */
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+/* para pag may laman na yung box may not allowed icon sa cursor */
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+/* X and Circle mark */
+
+.cell.x::before,
+.cell.x::after {
+  background-color: var(--primary-xClass);
+}
+
+.cell.circle::before,
+.cell.circle::after {
+  background-color: var(--primary-cClass);
+}
+
+/* for hover  */
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  background-color: var(--primary-hover);
+  opacity: 0.8;
+}
+
+/* For Turn */
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+/* To make X mark */
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+
+/* To make Circle mark */
+
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+/* inner circle */
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: var(--primary-background);
+}
+
+/* <!--END GAME MESSAGE--> */
+
+.win-message {
+  width: 70%;
+  height: 90%;
+  margin: 0 auto;
+  margin-top: 2%;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  display: none;
+  position: relative;
+  background-color: var(--primary-hover);
+  opacity: 0.95;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-background);
+  font: 500% $font;
+  border-radius: 20px;
+}
+
+.win-message.show {
+  display: flex;
+}
+
+/* <!--BUTTONS--> */
+
+#gameEnd {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  display: flex;
+  text-align: center;
+  align-items: flex-start;
+  text-align: center;
+  justify-content: space-around;
+  button {
+    width: 40%;
+    height: 20%;
+    border-radius: 5px;
+    font: 90% $font;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+    cursor: pointer;
+  }
+}
+
+#histoPage.show {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  button {
+    width: 45%;
+    height: 20%;
+    border-radius: 5px;
+    font: 90% $font;
+    color: var(--primary-background);
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+    cursor: pointer;
+  }
+}
+
+#gameEnd button:hover {
+  background-color: var(--primary-textColor);
+  color: var(--primary-after-hover);
+  border-color: var(--primary-background);
+}
+
+#histoPage button:hover {
+  background-color: var(--primary-textColor);
+  color: var(--primary-after-hover);
+  border-color: var(--primary-background);
+}
+/* MEDIA QUERY */
+
+/* TABLET AND LAPTOP */
+
+@media only screen and (max-width: $tablet), (max-width: $laptop) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--primary-background);
+    overflow: hidden;
+  }
+
+  #Container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 25% 25% 25% 25%;
+  }
+
+  #title {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font: 400% $font;
+    line-height: 100%;
+    color: var(--primary-textColor);
+  }
+
+  #turn {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    font: 150% $font;
+    line-height: 10%;
+    color: var(--primary-textColor);
+  }
+
+  #mode {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 9;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 50%;
+    margin-right: -20%;
+
+    cursor: pointer;
+  }
+
+  #moonIcon {
+    width: 50%;
+  }
+
+  /* <!--GAME BOARD--> */
+
+  .board {
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 9;
+  }
+
+  /* <!--END GAME MESSAGE--> */
+
+  .win-message {
+    width: 70vw;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 0%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    display: none;
+    position: relative;
+    background-color: var(--primary-hover);
+    opacity: 0.95;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-background);
+    font: 500% $font;
+    border-radius: 20px;
+  }
+
+  .win-message.show {
+    display: flex;
+  }
+
+  /* <!--BUTTONS--> */
+
+  #gameEnd {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    button {
+      width: 70%;
+      height: 25%;
+      border-radius: 5px;
+      font: 160% $font;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
+      cursor: pointer;
+    }
+  }
+
+  #histoPage.show {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    text-align: center;
+    button {
+      width: 40%;
+      height: 25%;
+      border-radius: 5px;
+      font: 160% $font;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
+      cursor: pointer;
+    }
+  }
+
+  #gameEnd button:hover {
+    background-color: var(--primary-textColor);
+    color: var(--primary-after-hover);
+    border-color: var(--primary-background);
+  }
+}
+
+/*  S M L MOBILE */
+
+@media only screen and (max-width: $mobileS),
+  (max-width: $mobileM),
+  (max-width: $mobileL) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--primary-background);
+    overflow: hidden;
+  }
+
+  #Container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 25% 25% 25% 25%;
+  }
+
+  #title {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font: 300% $font;
+    line-height: 80%;
+    color: var(--primary-textColor);
+  }
+
+  #turn {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    font: 130% $font;
+    line-height: 10%;
+    color: var(--primary-textColor);
+  }
+
+  #mode {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 10;
+    grid-column-end: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100%;
+    margin-right: 20%;
+    cursor: pointer;
+  }
+
+  #moonIcon {
+    width: 100%;
+  }
+
+  /* <!--GAME BOARD--> */
+
+  .board {
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 9;
+  }
+
+  /* <!--END GAME MESSAGE--> */
+
+  .win-message {
+    width: 95vw;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 0%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    display: none;
+    position: relative;
+    background-color: var(--primary-hover);
+    opacity: 0.95;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-background);
+    font: 300% $font;
+    border-radius: 20px;
+  }
+
+  .win-message.show {
+    display: flex;
+  }
+
+  /* <!--BUTTONS--> */
+
+  #gameEnd {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    button {
+      width: 80%;
+      height: 25%;
+      border-radius: 5px;
+      font: 100% $font;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
+      cursor: pointer;
+    }
+  }
+
+  #histoPage.show {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    text-align: center;
+    button {
+      width: 45%;
+      height: 20%;
+      border-radius: 5px;
+      font: 100% $font;
+      color: var(--primary-background);
+      background-color: var(--primary-hover);
+      border: 1px solid var(--primary-hover);
+      cursor: pointer;
+    }
+  }
+}
