@@ -114,100 +114,163 @@ If sell was successful, print message "Successful transaction"
 Create a function totalEarnings() that will display the total earnings of the store, print store name and earnings;
 Create a function listInventory() that will display all of books in the inventory, print title quantity and value; */
 
-let bookCount = 0;
-var books = [];
-let storeEarnings = {};
+// let bookCount = 0;
+// let storeEarnings = {};
 
-var store = {
-  storeName: "Books R us",
-  inventoryList: [],
-  quantityBooks: [],
-  /*   earnings: ` P ${}`, */
-};
+// var books = [
+//   {
+//     bookTtitle: "Noli me Tangere",
+//     bookQuantity: 3,
+//     bookCost: 400,
+//   },
+// ];
 
-//FUNCTIONS
+// var store = {
+//   storeName: "Books R us",
+//   inventoryList: [],
+//   earnings: 0,
+//   quantityBooks: [],
+// };
 
-function increment(add) {
-  bookCount += 1;
-  store.quantityBooks.push(bookCount);
-}
+// //FUNCTIONS
 
-function addBook(bookTitle, bookQuantity, bookCost) {
-  var bookItems = [];
-  bookItems.bookTitle = bookTitle;
-  bookItems.bookQuantity = bookQuantity;
-  bookItems.bookCost = bookCost;
-  books.push(bookItems);
-  store.inventoryList.push(bookItems);
-  increment();
-}
+// /* function increment(add) {
+//   bookCount += 1;
+//   store.quantityBooks.push(bookCount);
+// } */
 
-function restockBook(bookTitle, bookQuantity, bookCost) {
-  if (bookTitle === store.inventoryList[0]) {
-    books[0].bookQuantity += bookQuantity;
-    books[0].bookCost += bookQuantity * bookCost;
-    console.log(`${bookTitle} restocked.`);
+// let addBook = function (bookTitle, bookQuantity, bookCost) {
+//   var bookItems = {};
+//   bookItems.bookTitle = bookTitle;
+//   bookItems.bookQuantity = bookQuantity;
+//   bookItems.bookCost = bookCost;
+//   /*   books.push(bookItems); */
+//   store.inventoryList.push(bookItems);
+// };
+
+// this.restockBook = function () {
+//   if (bookItems.bookQuantity > 0) {
+//     console.log(
+//       `You still have ${bookItems.bookQuantity} pieces of ${bookItems.bookTitle} in your inventory`
+//     );
+//   } else {
+//     console.log(`Please restock ${bookItems.title}.`);
+//   }
+// };
+
+// this.sellBook = function () {
+//   let element = store.inventoryList.find(
+//     (element) => element.bookTitle === bookTitle
+//   );
+//   if (element.bookQuantity > 0) {
+//     console.log(`You only have ${element.bookQuantity} stocks left.`);
+//   }
+//   element.bookQuantity -= bookQuantity;
+//   store.earnings += bookQuantity * element.bookCost;
+//   console.log(
+//     `Successful Transaction! You still have ${element.bookQuantity} stocks of ${bookItems.bookTitle} left.`
+//   );
+// };
+
+// this.inventoryList = function () {
+//   console.log(`${store.inventoryList}`);
+// };
+
+// function totalEarnings() {
+//   console.log(`${store.storeName}'s Total Earnings: P${store.earnings}`);
+// }
+
+// //ADDING:
+// let lotr = new addBook("Lord of the Rings", 1, 500);
+// let tlp = new addBook("The Little Prince", 1, 300);
+// let tkamb = new addBook("To Kill a Mocking Bird", 2, 500);
+// let lotf = new addBook("Lord of the Flies", 3, 500);
+
+// // console.log(book);
+// addBook();
+// lotr.restockBook();
+// totalEarnings();
+// console.log(store.listInventory());
+
+// /* sellBook("The Little Prince", 3, 300); */
+// /* console.log(books); */
+
+// totalEarnings("Books R Us", 1500);
+// console.log(storeEarnings);
+
+//USING CLASS
+
+class Store {
+  constructor(storeName, inventoryList, earnings) {
+    this.storeName = storeName;
+    this.inventoryList = inventoryList;
+    this.earnings = earnings;
   }
-  if (bookTitle === store.inventoryList[1]) {
-    books[1].bookQuantity += bookQuantity;
-    books[1].bookCost += bookQuantity * bookCost;
-    console.log(`${bookTitle} restocked.`);
+
+  addBook(bookTitle, bookQuantity, bookCost) {
+    var addingbooks = new Books(bookTitle, bookQuantity, bookCost);
+    this.inventoryList.push(addingbooks);
+  }
+
+  restockBook(bookTitle, bookQuantity) {
+    this.inventoryList.some((books) => {
+      if (books.bookTitle === bookTitle) {
+        books.bookQuantity += bookQuantity;
+      }
+    });
+  }
+
+  sellBook(bookTitle, bookQuantity) {
+    console.log(`SOLD`);
+    this.inventoryList.forEach((books) => {
+      if (books.bookTitle === bookTitle) {
+        if (books.bookQuantity === 0) {
+          return console.log(`OUT OF STOCK!: ${books.bookTitle}`);
+        } else if (books.bookQuantity < bookQuantity) {
+          return console.log(`STOCKS LEFT: ${books.bookQuantity}`);
+        } else {
+          books.bookQuantity -= bookQuantity;
+          this.earnings += books.bookCost * bookQuantity;
+          console.log(`TRANSACTION SUCCESSFUL!`);
+        }
+      }
+    });
+  }
+  totalEarnings() {
+    console.log(`STORE NAME: ${this.storeName}`);
+    console.log(`EARNINGS: P${this.earnings}`);
+  }
+
+  inventoryList() {
+    console.log("INVENTORY");
+    this.inventoryList.forEach((books) => {
+      console.log(
+        `Book Title: ${books.bookTitle} Quantity: ${books.bookQuantity} pcs Cost: ${books.bookCost}`
+      );
+    });
   }
 }
 
-/* let restockBooks = [];
-  restockBooks.bookTitle = bookTitle;
-  restockBooks.bookQuantity = bookQuantity;
-  restockBooks.bookCost = bookCost;
-  store.inventoryList.push(restockBooks);
-  increment(); */
-
-function sellBook(bookTitle, bookQuantity, bookCost) {
-  if (bookTitle === store.inventoryList[0]) {
-    if (books[0].bookQuantity < quantityBooks) {
-      console.log("Only" + books[0].bookQuantity + " stock/s left.");
-    } else {
-      books[0].quantityBooks -= bookQuantity;
-      books[0].bookCost -= bookQuantity * bookCost;
-      store.storeEarnings += bookQuantity * bookCost;
-    }
-  } else {
-    console.log(`${bookTitle} out of stock.`);
+class Books {
+  constructor(bookTitle, bookQuantity, bookCost) {
+    this.bookTitle = bookTitle;
+    this.bookQuantity = bookQuantity;
+    this.bookCost = bookCost;
   }
-
-  /* let soldBooks = [];
-  soldBooks.bookTitle = bookTitle;
-  soldBooks.bookQuantity = bookQuantity;
-  soldBooks.bookCost = bookCost;
-  store.inventoryList.pop(soldBooks); */
-}
-function totalEarnings(storeName, totalEarnings) {
-  console.log(`${store.storeName}'s Total Earnings: ${storeEarnings}`);
-  /*   storeEarnings.storeName = storeName;
-  storeEarnings.totalEarnings = totalEarnings; */
 }
 
-//ADDING:
-addBook("Lord of the Rings", 1, 500);
-addBook("The Little Prince", 1, 300);
-/* sellBook("The Little Prince", 3, 300); */
-/* console.log(books); */
+//ADDING BOOKS
+let bookStore = new Store("Books R Us!", [], 0);
 
-restockBook("Harry Potter", 1, 700);
-console.log(store);
-console.log("Book count =", bookCount);
+bookStore.addBook("Lord of the Rings", 1, 500);
+bookStore.addBook("The Little Prince", 1, 300);
+bookStore.addBook("To Kill a Mocking Bird", 2, 500);
+bookStore.addBook("Lord of the Flies", 3, 500);
 
-totalEarnings("Books R Us", 1500);
-console.log(storeEarnings);
-///
-/* function addBook (bookTitle, bookQuantity, bookCost) {
-  this.bookTitle = bookTitle;
-  this.bookQuantity = bookQuantity;
-  this.bookCost = bookCost;
-}
- */
+//SELLING BOOKS
+console.log(bookStore);
+bookStore.sellBook("Lord of the Flies", 3);
 
-/*  let counter = bookQuantity.length;
-  for (var i = 0; i < counter; i++) {
-    console.log("restock");
-  } */
+//TOTAL EARNINGS
+bookStore.totalEarnings();
+bookStore.inventoryList();
