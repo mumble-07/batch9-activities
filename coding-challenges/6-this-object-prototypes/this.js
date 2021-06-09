@@ -270,6 +270,7 @@ bookStore.addBook("Lord of the Flies", 3, 500);
 //SELLING BOOKS
 console.log(bookStore);
 bookStore.sellBook("Lord of the Flies", 2);
+bookStore.sellBook("To Kill a Mocking Bird", 2);
 
 //TOTAL EARNINGS
 bookStore.totalEarnings();
