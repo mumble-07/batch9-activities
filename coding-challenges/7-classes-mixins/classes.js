@@ -91,8 +91,6 @@
 
 
 //from sir Pau 
-
-
 ​
 class Vehicle {
     constructor() {
@@ -109,7 +107,7 @@ class Vehicle {
         console.log("Steering and moving forward!")
     }
 }
-​
+​/* 
 class Car extends Vehicle {
     constructor() {
         super()
@@ -139,7 +137,7 @@ class SpeedBoat extends Vehicle {
         super.drive()
         console.log("Speeding through the water with ease")
     }
-}
+} */
 ​
 ​
 // let boat = new SpeedBoat() 

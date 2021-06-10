@@ -6,33 +6,37 @@ total earnings should reflect to MainStore class and also BookStore*/
 class MainStore {
   constructor(storeName, inventoryList, earnings) {
     this.storeName = storeName;
-    this.inventoryList = inventoryList;
+    this.inventoryList = [];
     this.earnings = earnings;
+  }
+  addItem(item) {
+    this.inventoryList.push(item);
+  }
+  inventoryList() {
+    console.log(this.list);
   }
 }
 
 class BookStore extends MainStore {
   constructor(bookTitle, bookQuantity, bookCost) {
-    super();
     this.bookTitle = bookTitle;
     this.bookQuantity = bookQuantity;
     this.bookCost = bookCost;
   }
-
-  addBook(bookTitle, bookQuantity, bookCost) {
-    let addingBooks = new BookStore(bookTitle, bookQuantity, bookCost);
-    this.inventoryList.push(addingBooks);
-  }
 }
 
-class Laptop extends MainStore {
-  constructor(laptopBrand, laptopQuantity, laptopCost) {
-    super();
-    this.laptopBrand = laptopBrand;
-    this.laptopQuantity = laptopQuantity;
-    this.laptopCost = laptopCost;
-  }
-}
+let trialStore = new MainStore("Books R Us", [], 0);
+trialStore.addBook("Lord of the Rings", 1, 500);
+console.log(trialStore);
 
-let newBookStore = new MainStore("Books R Us", [], 0);
+// class Laptop extends MainStore {
+//   constructor(laptopBrand, laptopQuantity, laptopCost) {
+//     this.laptopBrand = laptopBrand;
+//     this.laptopQuantity = laptopQuantity;
+//     this.laptopCost = laptopCost;
+//   }
+// }
+
+/* 
+let newBookStore = new MainStore("Books R Us", [], 0); */
 /* newBookStore.addBook("Lord of the Rings", 1, 500); */
