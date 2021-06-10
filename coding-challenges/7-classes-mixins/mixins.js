@@ -1,4 +1,4 @@
-import { sayHiMixin } from "utils.mjs";
+import { sayHiMixin } from "./utils.js";
 
 class User {
   constructo(name) {
