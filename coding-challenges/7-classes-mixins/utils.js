@@ -1,6 +1,6 @@
 //utils.js
 
-export const sayHiMixin = {
+export let sayHiMixin = {
   sayHi() {
     console.log(`Hello ${this.name}`);
   },

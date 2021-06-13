@@ -1,7 +1,7 @@
 import { sayHiMixin } from "./utils.js";
 
 class User {
-  constructo(name) {
+  constructor(name) {
     this.name = name;
   }
 }
